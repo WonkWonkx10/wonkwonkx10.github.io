@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colleen Schmidt · Instructional Designer</title>
+<meta name="description" content="Instructional designer and AP Capstone teacher. Five deployed tools, built to real classroom constraints, with the design decisions and outcome data behind them.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Colleen Schmidt · Instructional Designer">
+<meta property="og:description" content="Five deployed tools, built to real classroom constraints, with the design decisions and outcome data behind them.">
+<meta property="og:url" content="https://colleenschmidt.com">
+<!-- <meta property="og:image" content="https://colleenschmidt.com/preview.png"> -->
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script>
+  // Enhancement flags only. All content is readable with JS disabled.
+  (function(){
+    var d = document.documentElement;
+    d.className += ' js';
+    if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) d.className += ' anim';
+  })();
+</script>
+
+<style>
+  :root{
+    --paper:#F2EFE6; --paper-2:#ECE8DC;
+    --ink:#17251F; --pine:#1F3A31; --pine-soft:#24473C;
+    --amber:#B57C22; --amber-deep:#8A5D16; --amber-lt:#D9A441;
+    --sage:#6E8577; --sage-deep:#566A5D; --sage-lt:#9FB3A6;
+    --line:#DAD4C6; --line-dark:#39544A;
+    --maxw:1140px; --gut:clamp(1.25rem, 5vw, 4rem);
+    --f-display:"Fraunces", Georgia, "Times New Roman", serif;
+    --f-body:"IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:1.0625rem;line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  h1,h2,h3,h4{font-family:var(--f-display);font-weight:600;line-height:1.1;letter-spacing:-0.015em;margin:0}
+  p{margin:0 0 1rem}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut)}
+
+  .eyebrow{font-family:var(--f-mono);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--sage-deep);margin:0 0 0.9rem;display:block}
+  .on-dark .eyebrow{color:var(--sage-lt)}
+
+  /* signature: confidence tag */
+  .tag{display:inline-flex;align-items:center;gap:0.4em;font-family:var(--f-mono);font-size:0.66rem;letter-spacing:0.06em;color:var(--sage-deep);white-space:nowrap}
+  .tag::before{content:"";width:0.5em;height:0.5em;background:var(--sage);display:inline-block;transform:rotate(45deg)}
+  .on-dark .tag{color:var(--sage-lt)} .on-dark .tag::before{background:var(--sage-lt)}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb, var(--paper) 86%, transparent);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--line)}
+  .topbar .wrap{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding-block:0.85rem}
+  .mark{font-family:var(--f-display);font-weight:600;font-size:1.15rem;text-decoration:none}
+  .mark span{color:var(--amber-deep)}
+  .nav{display:flex;gap:1.4rem;font-family:var(--f-mono);font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase}
+  .nav a{text-decoration:none;color:var(--sage-deep);padding-bottom:2px;border-bottom:1px solid transparent;transition:color .18s,border-color .18s}
+  .nav a:hover,.nav a:focus-visible{color:var(--ink);border-color:var(--amber)}
+  @media (max-width:620px){.nav{display:none}}
+
+  /* hero */
+  .lead{padding-block:clamp(2.6rem,7vw,4.5rem) clamp(2.6rem,6vw,4rem)}
+  .lead-head{max-width:64ch;margin-bottom:clamp(2rem,5vw,3rem)}
+  .lead-head h1{font-size:clamp(2rem,4.4vw,3.3rem);max-width:22ch}
+  .lead-head h1 em{font-style:italic;color:var(--amber-deep)}
+  .lead-sub{font-size:clamp(1rem,1.6vw,1.15rem);line-height:1.6;max-width:60ch;margin-top:1.1rem;color:#2c3a33}
+  #approach{border-top:1px solid var(--line)}
+
+  section{padding-block:clamp(3rem,7vw,5rem)}
+  .section-head{max-width:62ch;margin-bottom:clamp(2rem,5vw,3rem)}
+  .section-head h2{font-size:clamp(1.75rem,3.6vw,2.6rem)}
+  .section-head p{margin-top:0.9rem;color:#2c3a33}
+  .band{background:var(--paper-2)}
+
+  /* outcomes tile: context, not a card */
+  .outcomes-tile{
+    background:var(--paper-2);border:1px solid var(--sage-lt);border-radius:3px;
+    padding:1.4rem 1.6rem;margin-bottom:clamp(2rem,4vw,2.8rem);
+    max-width:820px;
+  }
+  .outcomes-tile .lbl{margin-bottom:0.5rem}
+  .outcomes-tile p{margin:0;font-size:0.98rem;color:#2c3a33}
+  .outcomes-tile strong{color:var(--ink)}
+
+  /* artifact cards: 5-card grid */
+  .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem}
+  @media (max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:620px){.cards{grid-template-columns:1fr}}
+  .card{
+    text-align:left;display:flex;flex-direction:column;gap:0.7rem;
+    background:var(--paper);border:1px solid var(--line);border-radius:3px;
+    padding:1.6rem 1.5rem 1.4rem;cursor:pointer;font:inherit;color:inherit;
+    text-decoration:none;transition:border-color .2s,transform .2s,box-shadow .2s;
+  }
+  .card:hover,.card:focus-visible{border-color:var(--amber);transform:translateY(-3px);box-shadow:0 10px 30px -18px rgba(23,37,31,.5)}
+  .card .k{font-family:var(--f-mono);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber-deep)}
+  .card h3{font-size:1.35rem;line-height:1.15}
+  .card p{margin:0;font-size:0.93rem;color:#33403a;flex:1}
+  .card .tags-row{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.4rem}
+  .card .ctag{font-family:var(--f-mono);font-size:0.66rem;letter-spacing:0.04em;color:var(--sage-deep);padding:0.15rem 0.5rem;border:1px solid var(--line);border-radius:999px}
+  .card .open{margin-top:0.4rem;font-family:var(--f-mono);font-size:0.74rem;letter-spacing:0.04em;color:var(--ink);display:inline-flex;align-items:center;gap:0.45rem}
+  .card .open .arr{color:var(--amber-deep);transition:transform .2s}
+  .card:hover .open .arr{transform:translateX(4px)}
+
+  /* ---- PANELS: readable as sections without JS, modal with JS ---- */
+  .panel{border-top:1px solid var(--line);padding-block:clamp(2.5rem,6vw,3.5rem)}
+  .panel .panel-inner{max-width:820px;margin:0 auto}
+  .panel-close{display:none}
+  .panel .k{font-family:var(--f-mono);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber-deep);display:block;margin-bottom:0.7rem}
+  .panel h2{font-size:clamp(1.7rem,3.6vw,2.4rem);max-width:22ch}
+  .panel .sub{font-size:1.1rem;line-height:1.55;color:#28352e;margin-top:1rem;max-width:62ch}
+  .panel h3.section-h{font-family:var(--f-display);font-weight:600;font-size:1.25rem;margin-top:2.2rem;margin-bottom:0.7rem}
+  .panel ul.clean{margin:0.4rem 0 1rem;padding-left:1.25rem}
+  .panel ul.clean li{margin-bottom:0.4rem}
+  .panel .prose p{max-width:62ch}
+  .panel .comp-tags{margin-top:2rem;padding-top:1.4rem;border-top:1px dashed var(--line);font-family:var(--f-mono);font-size:0.78rem;color:var(--sage-deep);line-height:1.6}
+  .panel .comp-tags strong{color:var(--ink);font-family:var(--f-body);font-weight:600;margin-right:0.5rem}
+
+  .lbl{font-family:var(--f-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber-deep);margin-bottom:0.4rem}
+
+  /* ADDIE image-rich phases */
+  .badge{font-family:var(--f-mono);font-size:0.72rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--pine);border:1px solid var(--amber);border-radius:999px;padding:0.35rem 0.7rem;white-space:nowrap;display:inline-block}
+  .phases{margin-top:2rem;display:flex;flex-direction:column}
+  .phase{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem 2.2rem;align-items:start;padding-top:clamp(1.8rem,4vw,2.8rem);margin-top:clamp(1.8rem,4vw,2.8rem);border-top:1px solid var(--line)}
+  .phase:first-child{padding-top:0;margin-top:0;border-top:none}
+  .phase .phase-text h4{font-family:var(--f-body);font-weight:600;font-size:1.1rem;margin:0.55rem 0 0.4rem}
+  .phase .phase-text p{margin:0;font-size:0.97rem;color:#2c3a33}
+  .phase .phase-text p + p{margin-top:0.85rem}
+  .phase figure.shot{margin:0}
+  .phase:nth-child(even) .phase-text{order:2}
+  .phase.flip .phase-text{order:0}
+  .phase-wide{grid-template-columns:1fr}
+  .phase-wide .phase-text{order:0}
+  .shot-solo{max-width:560px;width:100%;justify-self:center}
+  .hero-shot{max-width:640px;width:100%;margin:1.8rem auto 0}
+  @media (max-width:640px){.phase{grid-template-columns:1fr;gap:0.9rem}.phase:nth-child(even) .phase-text{order:0}}
+
+  /* content two-up blocks */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem 2.4rem;margin-top:1.8rem}
+  @media (max-width:640px){.duo{grid-template-columns:1fr}}
+  .duo .block p{margin:0;font-size:0.98rem;color:#2c3a33}
+
+  /* need -> response rows */
+  .needs{margin-top:1.8rem;display:flex;flex-direction:column;gap:0}
+  .need{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;padding:1.2rem 0;border-top:1px solid var(--line)}
+  .need:first-child{border-top:none}
+  @media (max-width:640px){.need{grid-template-columns:1fr;gap:0.5rem}}
+  .need .n-need{font-weight:600;font-size:1rem}
+  .need .n-resp{font-size:0.97rem;color:#2c3a33}
+  .need .n-resp .lbl{display:block}
+
+  /* screenshot slots */
+  .shots{margin-top:2rem;display:grid;gap:1.4rem}
+  .shots.two{grid-template-columns:1fr 1fr}
+  .shots.three{grid-template-columns:repeat(3,1fr)}
+  @media (max-width:640px){.shots.two,.shots.three{grid-template-columns:1fr}}
+  figure.shot{margin:0}
+  .shot-frame{
+    border:1px dashed var(--sage);border-radius:3px;background:
+      repeating-linear-gradient(45deg, rgba(110,133,119,.06) 0 10px, transparent 10px 20px);
+    aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;
+  }
+  .shot-frame span{font-family:var(--f-mono);font-size:0.74rem;letter-spacing:0.03em;color:var(--sage-deep);max-width:32ch}
+  figure.shot img{width:100%;height:auto;display:block;border-radius:3px;border:1px solid var(--line)}
+  figcaption{font-size:0.85rem;color:#3a463f;margin-top:0.6rem;line-height:1.45}
+
+  /* metric strip */
+  .metrics{display:flex;flex-wrap:wrap;gap:1.6rem 2.4rem;margin-top:2.2rem;padding-top:1.6rem;border-top:1px dashed var(--line)}
+  .metric .num{font-family:var(--f-display);font-weight:600;font-size:clamp(1.7rem,3.2vw,2.3rem);line-height:1;color:var(--amber-deep)}
+  .metric .cap{display:block;margin-top:0.45rem;font-size:0.85rem;line-height:1.35;color:#3a463f;max-width:24ch}
+  .metric .tag{margin-top:0.4rem}
+
+  .panel-links{margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem 1.6rem;align-items:center}
+  .demo{display:inline-flex;align-items:center;gap:0.55rem;font-family:var(--f-mono);font-size:0.8rem;letter-spacing:0.04em;text-decoration:none;color:var(--ink);border-bottom:2px solid var(--amber);padding-bottom:2px;transition:gap .18s,color .18s}
+  .demo:hover,.demo:focus-visible{gap:0.85rem;color:var(--amber-deep)}
+  .demo .arr{font-size:1.05em}
+  .note{font-family:var(--f-mono);font-size:0.75rem;letter-spacing:0.02em;color:var(--sage-deep)}
+
+  /* approach */
+  .approach-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.8rem 2.8rem}
+  @media (max-width:720px){.approach-grid{grid-template-columns:1fr}}
+  .principle{border-left:2px solid var(--amber);padding-left:1.2rem}
+  .principle h3{font-size:1.16rem;font-family:var(--f-body);font-weight:600;letter-spacing:0}
+  .principle p{margin-top:0.45rem;font-size:0.97rem;color:#2c3a33}
+  .skills{margin-top:clamp(2.2rem,5vw,3rem);padding-top:1.6rem;border-top:1px solid var(--line)}
+  .chips{display:flex;flex-wrap:wrap;gap:0.55rem}
+  .chip{font-family:var(--f-mono);font-size:0.76rem;padding:0.35rem 0.7rem;border:1px solid var(--line);border-radius:999px;color:#33403a;background:var(--paper)}
+
+  /* evidence footprint block: styled like principle but wider */
+  .footprint{margin-top:clamp(2.2rem,5vw,3rem);padding:1.6rem 1.8rem;border:1px solid var(--sage-lt);border-radius:3px;background:var(--paper-2)}
+  .footprint h3{font-size:1.16rem;font-family:var(--f-body);font-weight:600;letter-spacing:0;margin-bottom:0.5rem}
+  .footprint p{margin:0;font-size:0.97rem;color:#2c3a33;max-width:70ch}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:2.6rem}
+  @media (max-width:760px){.about-grid{grid-template-columns:1fr;gap:1.6rem}}
+  .about p{color:#2c3a33;max-width:60ch}
+  .side dt{font-family:var(--f-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:0.3rem}
+  .side dd{margin:0 0 1.2rem;font-size:0.95rem}
+
+  /* contact */
+  .contact{background:var(--pine);color:var(--paper)}
+  .contact h2{color:var(--paper);font-size:clamp(1.8rem,4vw,2.7rem);max-width:18ch}
+  .contact .eyebrow{color:var(--sage-lt)}
+  .contact p{color:#dfe7e1;max-width:52ch;margin-top:1rem}
+  .contact-links{display:flex;flex-wrap:wrap;gap:1.2rem 2rem;margin-top:2.2rem}
+  .contact-links a{font-family:var(--f-mono);font-size:0.86rem;color:var(--paper);text-decoration:none;border-bottom:2px solid var(--amber-lt);padding-bottom:3px;transition:color .18s}
+  .contact-links a:hover,.contact-links a:focus-visible{color:var(--amber-lt)}
+  .foot{border-top:1px solid var(--line-dark);margin-top:clamp(2.6rem,6vw,4rem);padding-block:1.6rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.6rem;font-family:var(--f-mono);font-size:0.72rem;letter-spacing:0.05em;color:var(--sage-lt)}
+
+  a:focus-visible,.demo:focus-visible,.card:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px}
+  html.anim .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  html.anim .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  /* ---- MODAL BEHAVIOR (only when JS is on) ---- */
+  .js .panel{
+    position:fixed;inset:0;z-index:60;display:none;
+    background:rgba(23,37,31,.55);
+    padding:clamp(0.5rem,4vw,3rem);
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .js .panel.open{display:block}
+  .js .panel .panel-inner{
+    background:var(--paper);border:1px solid var(--line);border-radius:4px;
+    padding:clamp(1.6rem,4vw,2.8rem);
+    margin:0 auto;box-shadow:0 30px 80px -30px rgba(0,0,0,.5);
+  }
+  .js .panel-close{
+    display:inline-flex;align-items:center;justify-content:center;
+    float:right;margin:-0.4rem -0.4rem 0 1rem;
+    width:2.2rem;height:2.2rem;border-radius:50%;
+    border:1px solid var(--line);background:var(--paper);color:var(--ink);
+    font-size:1.1rem;cursor:pointer;line-height:1;
+  }
+  .js .panel-close:hover{border-color:var(--amber);color:var(--amber-deep)}
+  html.anim .js .panel.open .panel-inner{animation:rise .32s ease both}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){html.anim .js .panel.open .panel-inner{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="mark" href="#top">Colleen&nbsp;Schmidt<span>.</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section id="work" class="lead">
+    <div class="wrap">
+      <div class="lead-head reveal">
+        <span class="eyebrow">Instructional Design · Portfolio</span>
+        <h1>Five deployed tools, built to real <em>classroom</em> constraints.</h1>
+        <p class="lead-sub">Each artifact below was shipped to students or teachers in the last two academic years, with the design decisions and, where available, the outcome data behind it. Figures carry confidence tags: verified, recorded, or approximate.</p>
+      </div>
+
+      <!-- OUTCOMES TILE: portfolio-wide context, not a card -->
+      <div class="outcomes-tile reveal">
+        <div class="lbl">2026 AP Research Exam Cycle</div>
+        <p>Two tools in this portfolio were deployed to AP Research students during the 2025-2026 school year: the <strong>AP Research Paper Analyzer</strong> and the <strong>RQ and Method Alignment Workshop</strong>. In the first exam cycle following deployment, the paper-component mean rose from 6.0 (2025) to 6.6 (2026), a statistically significant shift (p = .005, Cohen's d = 0.26; 2025-to-2026 cohorts of comparable size, with confounding classroom variables held constant across the year).</p>
+      </div>
+
+      <div class="cards reveal">
+
+        <a class="card" href="#panel-speeds" data-modal="panel-speeds">
+          <span class="k">Deployed · APHG</span>
+          <h3>SPEEDS Explorer</h3>
+          <p>A landscape-reading game deployed to AP Human Geography students, built through all five ADDIE phases with the decisions behind each phase recorded.</p>
+          <div class="tags-row">
+            <span class="ctag">ADDIE</span>
+            <span class="ctag">React</span>
+            <span class="ctag">EdTech product</span>
+          </div>
+          <span class="open">Open case <span class="arr">&rarr;</span></span>
+        </a>
+
+        <a class="card" href="#panel-lucy" data-modal="panel-lucy">
+          <span class="k">Deployed · AP Research</span>
+          <h3>Lucy's Methods Lab</h3>
+          <p>A self-paced AP Research methods module in Articulate Rise 360, designed against peer-reviewed research on gifted learners and a 70-method source catalog.</p>
+          <div class="tags-row">
+            <span class="ctag">Rise 360</span>
+            <span class="ctag">GT pedagogy</span>
+            <span class="ctag">needs analysis</span>
+          </div>
+          <span class="open">Open case <span class="arr">&rarr;</span></span>
+        </a>
+
+        <a class="card" href="#panel-canvas" data-modal="panel-canvas">
+          <span class="k">Deployed · District</span>
+          <h3>Canvas APHG Teacher Launchpad</h3>
+          <p>A self-paced Canvas course supporting district APHG teachers at any stage, designed against WCAG 2.1 Level AA for the 2027 ADA Title II deadline.</p>
+          <div class="tags-row">
+            <span class="ctag">Canvas LMS</span>
+            <span class="ctag">WCAG 2.1 AA</span>
+            <span class="ctag">adult learning</span>
+          </div>
+          <span class="open">Open case <span class="arr">&rarr;</span></span>
+        </a>
+
+        <a class="card" href="#panel-analyzer" data-modal="panel-analyzer">
+          <span class="k">Deployed · AP Research</span>
+          <h3>AP Research Paper Analyzer</h3>
+          <p>An AI feedback tool returning rubric-aligned scoring on a full paper in under a minute, running on free student accounts by architectural choice.</p>
+          <div class="tags-row">
+            <span class="ctag">AI-integrated</span>
+            <span class="ctag">equity-first</span>
+            <span class="ctag">assessment design</span>
+          </div>
+          <span class="open">Open case <span class="arr">&rarr;</span></span>
+        </a>
+
+        <a class="card" href="#panel-rq" data-modal="panel-rq">
+          <span class="k">Deployed · AP Research</span>
+          <h3>RQ and Method Alignment Workshop</h3>
+          <p>An AI-integrated workshop that evaluates student research questions and methods in real time, with organic adoption outside the pilot before formal release.</p>
+          <div class="tags-row">
+            <span class="ctag">Anthropic API</span>
+            <span class="ctag">adaptive design</span>
+            <span class="ctag">alignment coaching</span>
+          </div>
+          <span class="open">Open case <span class="arr">&rarr;</span></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PANEL: SPEEDS EXPLORER ================= -->
+  <section class="panel" id="panel-speeds" role="dialog" aria-modal="true" aria-labelledby="speeds-title" tabindex="-1">
+    <div class="panel-inner">
+      <button class="panel-close" type="button" aria-label="Close">&times;</button>
+      <span class="k">SPEEDS Explorer · Deployed to APHG students</span>
+      <h2 id="speeds-title">A landscape-reading game, built through ADDIE end to end</h2>
+      <p class="sub">Here's the skill students were losing points on: reading a cultural landscape as evidence. SPEEDS Explorer is the game I built to make that skill practicable, deployed to APHG students and running on GitHub Pages with no login, no backend, and a whitelisted URL for district Chromebooks. Every ADDIE phase behind the build left a documented decision.</p>
+
+      <figure class="shot hero-shot">
+        <img src="images/addie-hero.jpg" alt="SPEEDS Explorer homepage, titled Stimulus skills practice, with a Start a round button and an Observe, Locate, Explain round overview">
+        <figcaption>The tool itself: a landscape-reading round in three phases, Observe, Locate, Explain, each practicing a skill the exam tests.</figcaption>
+      </figure>
+
+      <div class="phases">
+
+        <div class="phase">
+          <div class="phase-text">
+            <span class="badge">Analyze</span>
+            <h4>Find the real gap, not the assumed one</h4>
+            <p>In March, with the May AP exam approaching, I asked a fellow AP teacher what skill her students most needed to build before test day. She identified stimulus analysis, a skill AP Human Geography requires and one her students were losing points on. I gathered the specific language students use when answering these prompts and the real-world scenarios where they appear, then defined my population: AP Human Geography students who had already been introduced to the skill but needed practice applying it.</p>
+          </div>
+          <figure class="shot">
+            <img src="images/addie-analyze.jpg" alt="Paired black-and-white rural and urban landscape photographs of 1960s Japan, an illustrative stimulus">
+            <figcaption>The task I was designing for: reading a paired rural and urban cultural landscape as evidence. Illustrative stimulus created for this portfolio, not a College Board exam item.</figcaption>
+          </figure>
+        </div>
+
+        <div class="phase phase-wide">
+          <div class="phase-text">
+            <span class="badge">Design</span>
+            <h4>Rigor and motivation, held together</h4>
+            <p>My core design problem was a tension I had to hold on both sides at once. The tool had to demand specific, rigorous answers, but it also had to stay engaging enough that students wanted to keep going. For the motivation side, I based the interaction on GeoGuessr, a game my students already enjoyed, where players study a location and guess where in the world it is, and I built the round around that same guessing structure. For the rigor side, I held students to real AP Human Geography vocabulary: to earn credit they had to name what they saw in the discipline's actual terms, so play reinforced the vocabulary the exam expects. To keep that standard fair rather than punishing, I designed the scoring to accept recognized variations of each term, so a student who used a legitimate alternate phrasing still earned the point. I also held a strict evidence standard, that a term counts only when it is actually visible in the image, not merely true of the place. I aligned with the AP teacher on where that benchmark should sit. At this stage I also identified the open questions the build would have to solve: where to source the images, how to pull them, and where to host the whole thing.</p>
+          </div>
+          <div class="shots two">
+            <figure class="shot">
+              <img src="images/addie-design-observe.jpg" alt="SPEEDS Explorer observe screen, a street-level photo with SPEEDS category buttons for identifying what is visible">
+              <figcaption>The rigor side: the student picks a SPEEDS category and names something actually visible in the photo.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="images/addie-design.jpg" alt="SPEEDS Explorer locate screen, a stylized world map where the student drops a guess">
+              <figcaption>The motivation side: the guess-on-a-map moment, drawn from a game students already played.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="phase phase-wide">
+          <div class="phase-text">
+            <span class="badge">Develop</span>
+            <h4>Build the knowledge base, then the pipeline that feeds it</h4>
+            <p>With the design settled, I built the knowledge base that lets the tool read a photo the way an AP Human Geography student should. I assembled the vocabulary from course textbooks and openly accessible online course resources. The College Board CED, which has no glossary, I worked through by hand, sourcing its terms manually as a cross-check for alignment rather than feeding that material into the AI.</p>
+            <p>I then organized every term under an observation framework. I started from SPEED, a geography analysis tool credited to Ann Wurst through the National Council for Geographic Education, which sorts observations as Social, Political, Economic, Environmental, and Demographic. I extended it into SPEEDS by adding a sixth category, Spatial, since spatial reasoning is central to the discipline, and I grouped every vocabulary term under one of those six headings.</p>
+            <p>With the knowledge base structured, I built an image-analysis step, developed with Claude, that scans a location photo, identifies the SPEEDS-relevant features in it, and drafts the answer key for that image. I automated this deliberately rather than keying each location by hand, so the system could scale as the bank of locations grew. To feed it, I built a pull process on Google Maps that selects candidate locations by how likely they are to contain the features the scanner looks for, scoring each against a threshold before pulling it. The result was a repeatable loop: images pulled, scanned, and keys drafted, with no step done by hand once the system was running.</p>
+            <p>Once the loop worked, I built a prototype and ran it past two teachers as an early review, one of them the AP teacher I had consulted at the start. Her feedback changed the scope. She saw that the observation skill the tool was drilling is the same skill students use to answer Free Response Questions on the exam, where a stimulus has to be read and then used as evidence, and she wanted the tool to carry students into that next step. So I added a Free Response portion. It weaves the two halves together: students first identify what they see in the image, then use those same observations to answer an FRQ, which turns isolated practice into applied transfer. I based the prompts and their scoring on the response method these students had used all year, the ACE model, Answer, Cite, Expand, so the tool reinforced the exact framework their class already taught rather than introducing a competing one.</p>
+          </div>
+          <div class="shots two">
+            <figure class="shot">
+              <img src="images/addie-develop-1.jpg" alt="SPEEDS Explorer observations screen showing SPEEDS categories, tiered observations, and accepted term variations">
+              <figcaption>The knowledge base at work: observations sorted by SPEEDS category, each accepting recognized variant phrasings.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="images/addie-develop-2.jpg" alt="SPEEDS Explorer FRQ screen with observations carried up as evidence, an ACE check, and a model answer">
+              <figcaption>The FRQ transfer: observations carry up as evidence, scored on the ACE framework, Answer, Cite, Expand, students already use.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="phase flip">
+          <div class="phase-text">
+            <span class="badge">Implement</span>
+            <h4>Prove access, then roll out</h4>
+            <p>Implementation happened gradually, over three days. The AP Human Geography teachers first shared the tool with a small group of about five students, a deliberate check that the site cleared the campus whitelist and loaded on student devices before any wider release. Once access was confirmed, we rolled it out as a post-quiz activity, the task students work through on their own after finishing a quiz. I built a feedback channel in from the start, explicitly asking students to email me their problems and suggestions, so the rollout itself doubled as a live source of user feedback.</p>
+          </div>
+          <figure class="shot">
+            <img src="images/addie-implement.jpg" alt="SPEEDS Explorer reveal screen showing a completed round at the Golden Temple in Amritsar, India">
+            <figcaption>A completed round from the post-quiz activity, the tool as students actually met it.</figcaption>
+          </figure>
+        </div>
+
+        <div class="phase phase-wide">
+          <div class="phase-text">
+            <span class="badge">Evaluate</span>
+            <h4>Read the feedback, name the limit, set up the measure</h4>
+            <p>Evaluation ran on two levels. The first was formative and happened live during rollout, through the email channel I had built in. Two clear signals came back. One was a bug: on the locate screen, the map was not always dropping a student's pin where they clicked, which I traced and fixed. The other was that students kept asking for more images and locations. I read that appetite as an engagement signal, since students rarely ask for more of an activity they are not enjoying, though I hold that as an inference rather than a measured result. In response, I added more images and locations, widening the variety students had to work with.</p>
+            <p>The second level was summative. Both teachers who ran the tool gave strong positive feedback, specifically that it gamified a skill their students genuinely needed more practice on, and that it carried the observation work through into answering FRQs. For a read beyond my own campus, I shared the tool with a select group of AP Human Geography teachers nationally. The response was positive, and the tool has since spread to other campuses.</p>
+            <p>I am candid about the limit of this evidence. Because the tool has no backend, it collects no usage data, so I cannot yet point to measured learning gains. What I have is qualitative: student feedback, an engagement signal, teacher endorsement, and peer review. The one measurement I have set up is still pending: I will review participating students' AP exam scores when they arrive, to test whether the practice moved the needle on the exam itself.</p>
+          </div>
+          <div class="shots">
+            <figure class="shot shot-solo">
+              <img src="images/addie-evaluate.jpg" alt="SPEEDS Explorer reveal screen showing a location in Deira, Dubai, part of the expanded set of locations">
+              <figcaption>Part of the widened set of locations added after students asked for more.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="metrics">
+        <div class="metric"><span class="num">5</span><span class="cap">ADDIE phases, each with a documented decision behind it</span><span class="tag">recorded</span></div>
+        <div class="metric"><span class="num">8&rarr;21</span><span class="cap">playable locations from first build to audited release</span><span class="tag">recorded at audit</span></div>
+        <div class="metric"><span class="num">~140</span><span class="cap">CED terms extracted from primary sources, photo-observable flagged</span><span class="tag">approximate</span></div>
+        <div class="metric"><span class="num">3-day</span><span class="cap">phased rollout, access proven with a small group before class-wide release</span><span class="tag">recorded</span></div>
+      </div>
+
+      <div class="panel-links">
+        <a class="demo" href="https://wonkwonkx10.github.io/speeds-explorer/" target="_blank" rel="noopener"><span>Play the live game</span><span class="arr">&rarr;</span></a>
+      </div>
+
+      <div class="comp-tags">
+        <strong>Competencies:</strong> ADDIE end-to-end · React front-end build · primary-source vocabulary extraction · access-first deployment · qualitative and pending summative evaluation
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PANEL: LUCY'S METHODS LAB ================= -->
+  <section class="panel" id="panel-lucy" role="dialog" aria-modal="true" aria-labelledby="lucy-title" tabindex="-1">
+    <div class="panel-inner">
+      <button class="panel-close" type="button" aria-label="Close">&times;</button>
+      <span class="k">Lucy's Methods Lab · Deployed to AP Research students</span>
+      <h2 id="lucy-title">A methods module designed from the struggle</h2>
+      <p class="sub">Here's what students most often get wrong in AP Research: they confuse a data-collection tool (a survey, an interview) with a method (correlational, thematic, historical). Lucy's Methods Lab is the self-paced Rise 360 module I built to make that distinction visible, deployed as an independent practice resource. Every design decision below traces back to a specific way learners were getting stuck.</p>
+
+      <h3 class="section-h">The Problem</h3>
+      <div class="prose">
+        <p>AP Research asks students to design and execute an original research study across a year. The single most common conceptual error is confusing a data-collection tool (a survey, an interview) with a method (descriptive, correlational, thematic analysis). The confusion cascades: a student who thinks a survey is a method cannot defend their choice of analysis, cannot align their claims to their evidence, and loses points on the rubric's method and new-understanding rows.</p>
+        <p>Standard remediation is a lecture, which the strongest students in the room have already tuned out. AP Research is a gifted-and-talented population; the pedagogy has to match.</p>
+      </div>
+
+      <h3 class="section-h">What I Built</h3>
+      <div class="prose">
+        <p>A Rise 360 module organized around a held-constant subject (a puppy named Lucy) as a controlled variable. Because the subject never changes across examples, any difference in the finding has to come from the method chosen. This is the module's spine and the fastest way to make the method-versus-tool distinction visible.</p>
+        <p>Peer-reviewed research on gifted learners drove the interaction design: choice, differentiation, and depth-on-demand rather than generic online-learning mechanics. Learners can branch deeper into any method they want to understand more fully. The module was written to how gifted learners tend to work best, not to a generic online-course template.</p>
+      </div>
+
+      <div class="needs">
+        <div class="need">
+          <div class="n-need">Students confuse a tool with a method, the single point they most often get wrong.</div>
+          <div class="n-resp"><span class="lbl">Response</span>The whole module holds one subject constant, so the only thing that changes between examples is the method. When the finding changes, the method has to be the cause.</div>
+        </div>
+        <div class="need">
+          <div class="n-need">Learners skim past framework explainers on intro screens.</div>
+          <div class="n-resp"><span class="lbl">Response</span>The self-scoring framework was moved out of a skippable intro and placed as an explainer card on the screen where students actually use it.</div>
+        </div>
+        <div class="need">
+          <div class="n-need">Gifted learners disengage from linear content that offers no choice.</div>
+          <div class="n-resp"><span class="lbl">Response</span>Depth-on-demand branching lets learners follow any method deeper without forcing everyone through the same path.</div>
+        </div>
+        <div class="need">
+          <div class="n-need">Too many recommendations at once cause students to act on none.</div>
+          <div class="n-resp"><span class="lbl">Response</span>Feedback caps resource suggestions at one to three, each tied to the specific weakness found, so a student gets a next step rather than a reading list.</div>
+        </div>
+      </div>
+
+      <h3 class="section-h">Source Discipline</h3>
+      <div class="prose">
+        <p>The module rests on a 70-method source catalog built before any lesson was drafted. Every method entry records its source and page range first, so every written definition is a verified jump to a cited passage rather than a guess. Where a phrasing was the module's own synthesis rather than a sourced quote, it was flagged as such rather than dressed up as authority. This discipline carries into the module copy directly.</p>
+      </div>
+
+      <div class="shots two">
+        <figure class="shot">
+          <img src="images/lucy-perspective.png" alt="Lesson 2 of Lucy's Methods Lab: Your perspective is a filter, showing Lucy with a blue filter overlay to visualize the concept">
+          <figcaption>Lesson 2: making an abstract concept (perspective as a filter) visible through the held-constant subject.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="images/lucy-four-parts.png" alt="Lesson 3 of Lucy's Methods Lab: Four things you can name about any method, showing two researchers from different disciplines with clipboards observing Lucy">
+          <figcaption>Lesson 3: two disciplines interpreting the same subject, the fastest way to make the method-versus-tool distinction land.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="images/lucy-process-diagram.png" alt="Lesson 4 of Lucy's Methods Lab: How to read the menu, showing a research methods process diagram with subject, tool, methods, and claim columns">
+          <figcaption>Lesson 4: the process diagram. Subject held constant, tool held constant, methods vary, claims diverge.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="images/lucy-grid.png" alt="Lesson 12 of Lucy's Methods Lab: The grid, showing all seven methods arranged around two Lucys with color-coded tiles">
+          <figcaption>Lesson 12: the synthesis. Seven methods placed by family, by tool, and by what each can and cannot claim.</figcaption>
+        </figure>
+      </div>
+
+      <div class="metrics">
+        <div class="metric"><span class="num">70</span><span class="cap">methods catalogued with source and page recorded first</span><span class="tag">recorded, not re-counted</span></div>
+        <div class="metric"><span class="num">1&ndash;3</span><span class="cap">resource suggestions per weakness, capped so students are not overwhelmed</span><span class="tag">recorded</span></div>
+        <div class="metric"><span class="num">$0</span><span class="cap">cost to any student to reach the module</span><span class="tag">verified</span></div>
+      </div>
+
+      <div class="comp-tags">
+        <strong>Competencies:</strong> Rise 360 authoring · GT learner pedagogy · needs-driven design · source-discipline in instructional writing · self-paced module architecture
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PANEL: CANVAS APHG TEACHER LAUNCHPAD ================= -->
+  <section class="panel" id="panel-canvas" role="dialog" aria-modal="true" aria-labelledby="canvas-title" tabindex="-1">
+    <div class="panel-inner">
+      <button class="panel-close" type="button" aria-label="Close">&times;</button>
+      <span class="k">Canvas APHG Teacher Launchpad · Deployed to district APHG teachers</span>
+      <h2 id="canvas-title">District support for APHG teachers, packaged as a portable Canvas course</h2>
+      <p class="sub">Here's the reality on the ground: APHG teachers across a district arrive at the course with very different gaps and very different histories. The Canvas APHG Teacher Launchpad meets them where they are, packaged as a portable .imscc cartridge and designed against WCAG 2.1 Level AA ahead of the 2027 ADA Title II deadline.</p>
+
+      <h3 class="section-h">The Problem</h3>
+      <div class="prose">
+        <p>APHG is often the district's gateway AP course, taught to freshmen and frequently picked up alongside multiple other preps. Teachers arrive at it with different gaps:</p>
+        <ul class="clean">
+          <li>Novices need content orientation.</li>
+          <li>Veterans want FRQ scoring calibration or a path toward the Reader pipeline.</li>
+        </ul>
+        <p>Standard PD treats them all the same. Knowles' andragogy names the mismatch: adult learners work best when they can direct their own learning, set their own pace, and treat their prior experience as a resource rather than a reset.</p>
+      </div>
+
+      <h3 class="section-h">What I Built</h3>
+      <div class="prose">
+        <p>A Canvas course organized around three domains (Content, Skills, AP-Specific Knowledge) with two experience tiers. A Start Here module runs a self-assessment and recommends a path:</p>
+        <ul class="clean">
+          <li><strong>New Instructors:</strong> route into Content Knowledge, Geographer's Skills, or AP-Specific Knowledge.</li>
+          <li><strong>Returning Instructors:</strong> route into the Veteran Scoring Studio or the Job Aids Library for quick, 5-to-10 minute operational tasks.</li>
+        </ul>
+        <p>Every path is self-paced. The recommendation is just a recommendation; the teacher chooses.</p>
+      </div>
+
+      <h3 class="section-h">Accessibility</h3>
+      <div class="prose">
+        <p>Designed against WCAG 2.1 Level AA, the technical standard the DOJ's 2024 ADA Title II final rule requires for public school LMS course content. The compliance deadline for districts serving populations of 50,000 or more is April 26, 2027; HISD is well above that threshold. Design decisions were made with the standard in mind rather than added later: semantic heading structure on every page, color contrast held above the AA threshold in the palette, no color-only signaling, text alternatives written for every non-decorative image, and keyboard-navigable structure preserved through the .imscc import.</p>
+      </div>
+
+      <h3 class="section-h">Deployment Status</h3>
+      <div class="prose">
+        <p>Package imported cleanly into a Canvas sandbox. Prerequisite chains resolved on import. Every page renders with the design system intact.</p>
+      </div>
+
+      <h3 class="section-h">Craft Note</h3>
+      <div class="prose">
+        <p>Canvas's .imscc sanitizer strips style blocks and external fonts on import. Every page is authored in inline CSS with that constraint held in mind; the design system (dark green headers, gold accent rule, monospace time badges) survives the import because it was built to.</p>
+      </div>
+
+      <div class="shots three">
+        <figure class="shot">
+          <img src="images/canvas-01.png" alt="Task Verbs and the FRQ page in the Canvas APHG Teacher Launchpad">
+          <figcaption>A page-level view: the design system survives the .imscc sanitizer through inline CSS.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="images/canvas-02.png" alt="Landing view of the Canvas course showing the three-domain framing and six paths">
+          <figcaption>The whole architecture on one page: three domains, self-assessment, six paths.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="images/canvas-03.png" alt="How This Course Works page showing the three-domain framework">
+          <figcaption>The three-domain framework named explicitly for the learner.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="images/canvas-04.png" alt="Thinking Like a Geographer page teaching scale, pattern, process">
+          <figcaption>Skills page: geographer-specific pedagogy, not generic APHG content.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="images/canvas-05.png" alt="Modules view showing prerequisite wiring on all six modules">
+          <figcaption>Prerequisite chains resolved cleanly on .imscc import.</figcaption>
+        </figure>
+      </div>
+
+      <div class="comp-tags">
+        <strong>Competencies:</strong> adult learning principles · WCAG 2.1 AA · LMS authoring · portable course packaging · self-directed learning paths · experience-tiered design
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PANEL: AP RESEARCH PAPER ANALYZER ================= -->
+  <section class="panel" id="panel-analyzer" role="dialog" aria-modal="true" aria-labelledby="analyzer-title" tabindex="-1">
+    <div class="panel-inner">
+      <button class="panel-close" type="button" aria-label="Close">&times;</button>
+      <span class="k">AP Research Paper Analyzer · Deployed 2026 exam cycle</span>
+      <h2 id="analyzer-title">Rubric-aligned AI feedback on a full paper, on free student accounts</h2>
+      <p class="sub">Here's what feedback at scale actually costs: about thirty cents per student per analysis on paid infrastructure, and PDF uploads that free student accounts cannot do. The Paper Analyzer is the free-account alternative, returning rubric-aligned, section-by-section scoring on a full paper in under a minute so no one is priced out of practice.</p>
+
+      <h3 class="section-h">The Problem</h3>
+      <div class="prose">
+        <p>AP Research asks students to write a 4,000-to-5,000-word academic paper scored against a six-row rubric. Two constraints shape the practice window:</p>
+        <ul class="clean">
+          <li>Iterative feedback at scale is hard. Teachers can conference deeply, but not with every student on every draft.</li>
+          <li>Most AI feedback tools require paid accounts or PDF uploads, which puts a cost or access barrier between students and their own practice.</li>
+        </ul>
+        <p>The build had to remove the barrier before it could help anyone.</p>
+      </div>
+
+      <h3 class="section-h">What I Built</h3>
+      <div class="prose">
+        <p>A rubric-aligned analyzer that accepts a full paper as pasted plain text and returns:</p>
+        <ul class="clean">
+          <li>An estimated holistic score on the 1-to-5 College Board scale.</li>
+          <li>A ranked list of top revision priorities, each tied to specific passages in the student's own paper.</li>
+          <li>Row-by-row rubric feedback across all six rows (focus, situating in scholarship, method, new understanding, communication, citation).</li>
+          <li>Section-by-section feedback with strengths, weaknesses, and specific fixes.</li>
+          <li>Recommended textbook chapters mapped to the weaknesses the tool actually found, capped at 1 to 3 so students are not overwhelmed.</li>
+          <li>A live word-count indicator that turns green inside the 4,000-to-5,000-word requirement.</li>
+        </ul>
+        <p>Every strength, weakness, and fix references specific passages in the student's own paper. No generic advice.</p>
+      </div>
+
+      <h3 class="section-h">Architecture: Equity as a Design Constraint</h3>
+      <div class="prose">
+        <p>Two build paths were on the table. Path A was a standalone web app with a serverless backend calling the Claude API and allowing PDF upload, at roughly $0.30 per analysis. Path B was a Claude.ai artifact routing through Claude.ai's built-in API proxy. Path A required either paid infrastructure or student PDF uploads, which free Claude.ai accounts cannot do. Path B runs on free accounts with no API key, no subscription, no teacher-managed backend.</p>
+        <p>Chose Path B. Traded a nicer PDF workflow for zero cost at the student level. This was the architectural decision that shaped everything else.</p>
+      </div>
+
+      <h3 class="section-h">Calibration</h3>
+      <div class="prose">
+        <p>Scoring logic was tuned against 11 anonymized student papers with verified 2025 AP Research scores across the 2-to-5 range, plus named exemplar anchors at Scores 3, 4, and 5. Two rubric principles were encoded from that calibration:</p>
+        <ul class="clean">
+          <li>The method row gates the new-understanding row. A weak method score suppresses the new-understanding score regardless of other strengths.</li>
+          <li>Statistical overclaiming from small samples is the most common separator between adjacent score levels. Papers that honestly acknowledge non-significant results score higher than papers that inflate claims.</li>
+        </ul>
+      </div>
+
+      <h3 class="section-h">Differentiation Across Subjects and Formats</h3>
+      <div class="prose">
+        <p>AP Research is topic-agnostic. Students choose their own research questions, so any given cohort produces papers spanning biology experiments, sociological surveys, historical analyses, literature reviews, and design-based creative projects. Each subject area carries different disciplinary conventions for what counts as strong scholarship.</p>
+        <p>The methods layer adds a second axis. The course accepts quantitative, qualitative, mixed-methods, and artistic-design papers. A correlational paper has statistical analysis; a thematic analysis has coding schemes; an artistic process paper has an aesthetic rationale rather than findings. Method as a rubric row looks radically different across these.</p>
+        <p>The tool holds the rubric constant while adapting to the paper in front of it. A physics paper does not get feedback shaped by literary analysis norms; a qualitative paper is not penalized for lacking p-values it should not have.</p>
+      </div>
+
+      <h3 class="section-h">Diagnosis Wired to Remediation</h3>
+      <div class="prose">
+        <p>Every weakness the tool surfaces is mapped to a specific chapter in a textbook students already have access to. Galvan and Galvan (Writing Literature Reviews) for lit-review weaknesses. Leedy and Ormrod (Practical Research) for method and design weaknesses. A paper with a strong lit review but a weak method gets only the Leedy and Ormrod recommendation. Students get the next step, not just the verdict.</p>
+      </div>
+
+      <h3 class="section-h">Deployment Status</h3>
+      <div class="prose">
+        <p>Deployed: AP Research 2026 exam cycle. Distributed to students via the shareable artifact link, with a one-page instruction handout at rollout.</p>
+      </div>
+
+      <h3 class="section-h">Craft Note</h3>
+      <div class="prose">
+        <p>Free Claude.ai accounts have a daily message limit. The student handout boxes two warnings at the top: paste plain text rather than uploading, and do not burn the daily limit on trivial runs. The tool is fast, but a student running it three times back-to-back on the same draft is out of feedback for the day.</p>
+      </div>
+
+      <div class="metrics">
+        <div class="metric"><span class="num">11</span><span class="cap">papers with verified 2025 scores driving the scoring logic</span><span class="tag">verified</span></div>
+        <div class="metric"><span class="num">6</span><span class="cap">rubric rows scored, mapped to targeted revision suggestions</span><span class="tag">recorded</span></div>
+        <div class="metric"><span class="num">$0</span><span class="cap">cost to any student to reach the tool</span><span class="tag">verified</span></div>
+        <div class="metric"><span class="num">&lt;60s</span><span class="cap">turnaround per full paper analysis</span><span class="tag">recorded</span></div>
+      </div>
+
+      <div class="panel-links">
+        <a class="demo" href="https://claude.ai/public/artifacts/b1ec5d56-874e-42bb-9083-440332fa6644" target="_blank" rel="noopener"><span>Open the Paper Analyzer</span><span class="arr">&rarr;</span></a>
+      </div>
+
+      <div class="comp-tags">
+        <strong>Competencies:</strong> equity-first architecture · rubric-aligned assessment design · AI-integrated instructional tool · calibration against verified outcomes · diagnosis-to-remediation wiring
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PANEL: RQ AND METHOD ALIGNMENT WORKSHOP ================= -->
+  <section class="panel" id="panel-rq" role="dialog" aria-modal="true" aria-labelledby="rq-title" tabindex="-1">
+    <div class="panel-inner">
+      <button class="panel-close" type="button" aria-label="Close">&times;</button>
+      <span class="k">RQ and Method Alignment Workshop · Deployed 2026 exam cycle</span>
+      <h2 id="rq-title">Real-time coaching on the alignment students most often break</h2>
+      <p class="sub">Here's where the alignment breaks: students are asked to write research questions and pick methods at the same time in the year, when neither craft is developed. This workshop moves students through an 11-step Evaluate → Train → Rewrite → Align workflow, checking whether their research question and method actually answer each other and returning targeted coaching in seconds.</p>
+
+      <h3 class="section-h">The Problem</h3>
+      <div class="prose">
+        <p>AP Research students are asked to write research questions and pick methods at the same time in the year, when neither craft is developed. Two failure modes dominate: research questions too broad to answer with any single method, and methods that answer a different question than the one the student wrote. Both are alignment problems, and both suppress the method-row score, which in turn caps the new-understanding score. Feedback that catches the alignment problem before the student has invested weeks of data collection is high-leverage; feedback that catches it after is not.</p>
+      </div>
+
+      <h3 class="section-h">What I Built</h3>
+      <div class="prose">
+        <p>An 11-step scaffolded workshop with four stages, marked in the tool's header: Evaluate → Train → Rewrite → Align. A student enters their discipline, topic, and research question. The tool evaluates the RQ across four dimensions (Focus &amp; Scope, Researchability, Open-Endedness, Gap Potential) and returns color-coded status for each with specific critique. Where a dimension needs work, the tool routes the student into targeted training with worked examples in both quantitative and qualitative modes. The student rewrites, the tool re-evaluates, and only then does the workflow move to the method: an alignment analysis that names exactly where the RQ and method diverge (measurement validity, construct mismatch, sampling problems), followed by method training on question-type-to-method matching. The student rewrites again for alignment, and the workshop ends with a revision journey summary showing original RQ, after-training RQ, and final RQ side by side.</p>
+      </div>
+
+      <h3 class="section-h">Adaptive Design</h3>
+      <div class="prose">
+        <p>Alignment does not mean the same thing across methods, and the tool adapts. A historiographical question about mid-century fan letters gets feedback on archive access, primary-source anchoring, and gap potential relative to existing scholarship. A quantitative question about canine coat hardness gets feedback on measurement instruments, operationalized constructs, and comparison groups. The critique matches the discipline the student named at intake rather than pushing every student through a generic RQ rubric.</p>
+      </div>
+
+      <h3 class="section-h">Source Discipline</h3>
+      <div class="prose">
+        <p>Training screens cite the College Board CED, Leedy and Ormrod on how question framing determines data requirements, and Chief Reader observations on the most common alignment failures (for example, "many allowed method to drive inquiry rather than having method flow from the question"). Students see the same source ladder the AP Research course rests on, not a black-box AI critique.</p>
+      </div>
+
+      <h3 class="section-h">Deployment Status</h3>
+      <div class="prose">
+        <p>Deployed: AP Research 2026 exam cycle. Distributed via shareable artifact link, same free-account architecture as the Paper Analyzer. Initial release to a test group of 5 students; organic sharing outside the school preceded formal rollout to the full class.</p>
+      </div>
+
+      <h3 class="section-h">The Workflow in Screenshots</h3>
+      <div class="shots two">
+        <figure class="shot">
+          <img src="images/rq-evaluation.png" alt="RQ evaluation screen showing the four dimensions (Focus and Scope, Researchability, Open-Endedness, Gap Potential) with color-coded status for a historiography research question">
+          <figcaption>Step 2: The RQ evaluation, four dimensions with specific critique on each. Historiography example.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="images/rq-training.png" alt="Researchability training screen with What This Means, Why It Matters, Common Mistakes, Strategy, and worked examples">
+          <figcaption>Step 3: Targeted training on a weak dimension, with worked examples in both quantitative and qualitative modes.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="images/rq-alignment.png" alt="Alignment analysis screen showing weak alignment between a research question and method, with specific mismatches named">
+          <figcaption>Step 7: The alignment check that names exactly where the RQ and method diverge. Biology example.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="images/rq-journey.png" alt="Final revision journey showing original RQ, after-training RQ, and final RQ side by side with paper tips">
+          <figcaption>Step 11: The revision journey summary, showing how the RQ moved across the workshop.</figcaption>
+        </figure>
+      </div>
+
+      <div class="panel-links">
+        <a class="demo" href="https://claude.ai/public/artifacts/f193357a-d954-499b-9648-e7d555156c34" target="_blank" rel="noopener"><span>Open the RQ Workshop</span><span class="arr">&rarr;</span></a>
+      </div>
+
+      <div class="comp-tags">
+        <strong>Competencies:</strong> Anthropic API integration · adaptive design across methods · alignment coaching · real-time formative feedback · low-stakes practice for high-stakes decisions
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">How I work</span>
+        <h2>The same habits run through every case above.</h2>
+      </div>
+      <div class="approach-grid reveal">
+        <div class="principle"><h3>Evidence for assertion</h3><p>Every claim is fact-checked and source-verified before it goes into a tool, a lesson, or a portfolio. Verification is built into my systems, not applied after the fact. The confidence tags on this site (verified, recorded, approximate) are the same tags I use on my own working documents, so a reader knows what rests on hard evidence and what is my own synthesis.</p></div>
+        <div class="principle"><h3>Observe, diagnose, act</h3><p>I watch how work actually happens, find where it slows or breaks down, and then research and build a fix for the specific bottleneck. Every tool in this portfolio started as a bottleneck I noticed in the classroom: stimulus-analysis practice was hit-or-miss, so I built SPEEDS Explorer; teacher onboarding was one-size-fits-all, so I built the Canvas Launchpad; students could not get feedback on drafts fast enough to iterate, so I built the Paper Analyzer.</p></div>
+        <div class="principle"><h3>Diagnosis with a next step</h3><p>A verdict without a path is not instruction. Each tool pairs the problem it finds with a specific, reachable resource, so feedback moves a learner forward.</p></div>
+        <div class="principle"><h3>Ship on real constraints</h3><p>Locked-down devices, free accounts, and no backend are not excuses, they are the brief. Each limit becomes a property of the product: privacy, portability, zero cost, and access for every student before one logs in.</p></div>
+      </div>
+
+      <div class="footprint reveal">
+        <h3>Evidence Footprint</h3>
+        <p>Design decisions across the portfolio are anchored in structured evidence, not intuition. Eleven anonymized AP Research papers with verified 2025 College Board scores calibrated the Paper Analyzer's scoring logic. Roughly 140 AP Human Geography CED terms, extracted by hand from primary sources and tagged for photo-observability, ground the SPEEDS Explorer matching engine. A 70-method catalog with source and page recorded before any definition was written backs Lucy's Methods Lab. The 2026 AP Research exam cycle provides the first outcome measure across two deployed tools.</p>
+      </div>
+
+      <div class="skills reveal">
+        <span class="eyebrow">Toolkit</span>
+        <div class="chips">
+          <span class="chip">Instructional Design</span><span class="chip">Curriculum Design</span><span class="chip">ADDIE</span><span class="chip">Needs Analysis</span><span class="chip">Assessment &amp; Rubric Design</span><span class="chip">Articulate Rise 360</span><span class="chip">Canvas LMS</span><span class="chip">WCAG 2.1 AA</span><span class="chip">EdTech Product</span><span class="chip">AI Application</span><span class="chip">Anthropic API</span><span class="chip">Prompt Engineering</span><span class="chip">React</span><span class="chip">JavaScript</span><span class="chip">Python</span><span class="chip">Data Modeling</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="band">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about reveal">
+          <span class="eyebrow">About</span>
+          <h2 style="font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:1rem">Teacher first, builder by necessity.</h2>
+          <p>I teach in the AP Capstone program at a top 50 public high school in the United States. My students are spectacular and think in a wide range of ways, so I adapt constantly to meet them where they are. When I see a need, my instinct is to act on it and resolve it at the source, finding systemic solutions rather than band-aid fixes. The tools in this portfolio came out of that instinct. Each exists because a specific group of students or teachers needed something that did not exist yet, and building it myself was faster and truer to the problem than waiting for a product to fill the gap.</p>
+          <p>That path, teaching a rigorous skill and then constructing the system that scales it, is the work I want to do next: instructional design, learning experience design, and assessment-adjacent roles. Building solutions from a careful read of what learners actually need is the work I keep coming back to, and it is what I want to do more of.</p>
+        </div>
+        <dl class="side reveal">
+          <dt>Current role</dt>
+          <dd>AP Research &amp; AP Human Geography, AP Capstone program; AP District Lead</dd>
+          <dt>Focus</dt>
+          <dd>Instructional design, learning experience design, evidence-based assessment</dd>
+          <dt>Builds on</dt>
+          <dd>College Board CED and scoring guidelines, peer-reviewed methodology texts, primary-source extraction</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <footer id="contact" class="contact">
+    <div class="wrap">
+      <span class="eyebrow">Contact</span>
+      <h2>Let's talk about learning that holds up.</h2>
+      <p>Open to instructional design, learning experience design, and assessment-adjacent roles. Each case above can be walked through live or with the full build record. Reach out any time.</p>
+      <div class="contact-links">
+        <a href="mailto:colleenmschmidt@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/colleen-schmidt-110a8a299" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://wonkwonkx10.github.io/speeds-explorer/" target="_blank" rel="noopener">SPEEDS Explorer</a>
+        <a href="https://claude.ai/public/artifacts/b1ec5d56-874e-42bb-9083-440332fa6644" target="_blank" rel="noopener">Paper Analyzer</a>
+        <a href="https://claude.ai/public/artifacts/f193357a-d954-499b-9648-e7d555156c34" target="_blank" rel="noopener">RQ Workshop</a>
+      </div>
+      <div class="foot"><span>Colleen Schmidt</span><span>colleenschmidt.com</span></div>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function(){
+    var html = document.documentElement;
+    if (!html.classList.contains('js')) return;
+
+    var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+    var lastTrigger = null;
+
+    function focusables(panel){
+      return Array.prototype.slice.call(
+        panel.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])')
+      ).filter(function(el){ return el.offsetParent !== null; });
+    }
+
+    function open(id, trigger){
+      var panel = document.getElementById(id);
+      if(!panel) return;
+      lastTrigger = trigger || null;
+      panel.hidden = false;
+      panel.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      var f = focusables(panel);
+      (f[0] || panel).focus();
+      panel.addEventListener('keydown', onKey);
+    }
+    function close(panel){
+      panel.classList.remove('open');
+      panel.hidden = true;
+      panel.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+      if(lastTrigger){ lastTrigger.focus(); lastTrigger = null; }
+    }
+    function onKey(e){
+      var panel = e.currentTarget;
+      if(e.key === 'Escape'){ e.preventDefault(); close(panel); return; }
+      if(e.key === 'Tab'){
+        var f = focusables(panel);
+        if(!f.length) return;
+        var first = f[0], last = f[f.length-1];
+        if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+      }
+    }
+
+    // Hide panels initially (JS on); wire triggers.
+    panels.forEach(function(p){ p.hidden = true; });
+    document.querySelectorAll('[data-modal]').forEach(function(t){
+      t.addEventListener('click', function(e){
+        e.preventDefault();
+        open(t.getAttribute('data-modal'), t);
+      });
+    });
+    panels.forEach(function(p){
+      p.addEventListener('click', function(e){ if(e.target === p) close(p); });
+      var btn = p.querySelector('.panel-close');
+      if(btn) btn.addEventListener('click', function(){ close(p); });
+    });
+    // Support deep links like colleenschmidt.com/#panel-data
+    if(location.hash){
+      var t = document.querySelector('[data-modal="'+location.hash.slice(1)+'"]');
+      if(t) open(location.hash.slice(1), t);
+    }
+  })();
+
+  // Scroll reveal (enhancement only)
+  (function(){
+    if(!document.documentElement.classList.contains('anim')) return;
+    if(!('IntersectionObserver' in window)){
+      document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')}); return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  })();
+</script>
+
+</body>
+</html>

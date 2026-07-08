@@ -608,57 +608,89 @@
       <button class="panel-close" type="button" aria-label="Close">&times;</button>
       <span class="k">AP Research Paper Analyzer · Deployed 2026 exam cycle</span>
       <h2 id="analyzer-title">Rubric-aligned AI feedback on a full paper, on free student accounts</h2>
-      <p class="sub">Here's what feedback at scale actually costs: about thirty cents per student per analysis on paid infrastructure, and PDF uploads that free student accounts cannot do. The Paper Analyzer is the free-account alternative, returning rubric-aligned, section-by-section scoring on a full paper in under a minute so no one is priced out of practice.</p>
+      <p class="sub">Here's what feedback at scale actually costs: about thirty cents per student per analysis on paid infrastructure, and PDF uploads that free student accounts cannot do. The Paper Analyzer is the free-account alternative, returning <strong>rubric-aligned, section-by-section scoring</strong> on a full paper in under a minute so no one is priced out of practice.</p>
+
+      <figure class="shot hero-shot">
+        <img src="images/paper-input.png" alt="AP Research Analyzer input screen showing a paste-your-paper text box with a live word count indicator reading '4,301 words, in range' in green">
+        <figcaption>The input: paste plain text, watch the <strong>live word-count indicator</strong> turn green inside the 4,000-to-5,000-word requirement, and submit. No file upload, no login.</figcaption>
+      </figure>
 
       <h3 class="section-h">The Problem</h3>
       <div class="prose">
         <p>AP Research asks students to write a 4,000-to-5,000-word academic paper scored against a six-row rubric. Two constraints shape the practice window:</p>
         <ul class="clean">
-          <li>Iterative feedback at scale is hard. Teachers can conference deeply, but not with every student on every draft.</li>
-          <li>Most AI feedback tools require paid accounts or PDF uploads, which puts a cost or access barrier between students and their own practice.</li>
+          <li><strong>Iterative feedback at scale is hard.</strong> Teachers can conference deeply, but not with every student on every draft.</li>
+          <li><strong>Most AI feedback tools require paid accounts or PDF uploads,</strong> which puts a cost or access barrier between students and their own practice.</li>
         </ul>
         <p>The build had to remove the barrier before it could help anyone.</p>
       </div>
 
       <h3 class="section-h">What I Built</h3>
       <div class="prose">
-        <p>A rubric-aligned analyzer that accepts a full paper as pasted plain text and returns:</p>
+        <p>A rubric-aligned analyzer that accepts a full paper as pasted plain text and returns, in under a minute:</p>
         <ul class="clean">
-          <li>An estimated holistic score on the 1-to-5 College Board scale.</li>
-          <li>A ranked list of top revision priorities, each tied to specific passages in the student's own paper.</li>
-          <li>Row-by-row rubric feedback across all six rows (focus, situating in scholarship, method, new understanding, communication, citation).</li>
-          <li>Section-by-section feedback with strengths, weaknesses, and specific fixes.</li>
-          <li>Recommended textbook chapters mapped to the weaknesses the tool actually found, capped at 1 to 3 so students are not overwhelmed.</li>
-          <li>A live word-count indicator that turns green inside the 4,000-to-5,000-word requirement.</li>
+          <li><strong>Holistic 1-to-5 score</strong> with a justification anchored in the student's actual paper.</li>
+          <li><strong>Ranked top revision priorities,</strong> each tied to specific passages.</li>
+          <li><strong>Row-by-row rubric feedback</strong> across all six rows (focus, situating in scholarship, method, new understanding, communication, citation).</li>
+          <li><strong>Section-by-section feedback</strong> with strengths, weaknesses, and specific fixes.</li>
+          <li><strong>Chapter-level textbook recommendations,</strong> mapped to the weaknesses the tool actually found, capped at 1 to 3 so students are not overwhelmed.</li>
+          <li><strong>Live word-count indicator</strong> that turns green inside the 4,000-to-5,000-word requirement.</li>
         </ul>
         <p>Every strength, weakness, and fix references specific passages in the student's own paper. No generic advice.</p>
       </div>
 
+      <div class="shots two">
+        <figure class="shot">
+          <img src="images/paper-score.png" alt="Analyzer output showing a 3 out of 5 score circle labeled Ineffectual Argument, a paragraph of score justification, and a word count assessment for the paper">
+          <figcaption>The <strong>holistic score</strong> arrives with a justification that names what carries the paper and what caps it, then a word-count read tied to specific under-developed sections.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="images/paper-priorities.png" alt="Top Priorities to Raise Your Score section showing a numbered priority tied to specific findings in the student's paper">
+          <figcaption><strong>Ranked revision priorities</strong> lead each recommendation with the specific finding or move it targets, quantities pulled from the paper itself, and the rubric row it strengthens.</figcaption>
+        </figure>
+      </div>
+
       <h3 class="section-h">Architecture: Equity as a Design Constraint</h3>
       <div class="prose">
-        <p>Two build paths were on the table. Path A was a standalone web app with a serverless backend calling the Claude API and allowing PDF upload, at roughly $0.30 per analysis. Path B was a Claude.ai artifact routing through Claude.ai's built-in API proxy. Path A required either paid infrastructure or student PDF uploads, which free Claude.ai accounts cannot do. Path B runs on free accounts with no API key, no subscription, no teacher-managed backend.</p>
-        <p>Chose Path B. Traded a nicer PDF workflow for zero cost at the student level. This was the architectural decision that shaped everything else.</p>
+        <p>Two build paths were on the table. <strong>Path A</strong> was a standalone web app with a serverless backend calling the Claude API and allowing PDF upload, at roughly $0.30 per analysis. <strong>Path B</strong> was a Claude.ai artifact routing through Claude.ai's built-in API proxy. Path A required either paid infrastructure or student PDF uploads, which free Claude.ai accounts cannot do. Path B runs on free accounts with no API key, no subscription, no teacher-managed backend.</p>
+        <p>Chose Path B. Traded a nicer PDF workflow for <strong>zero cost at the student level</strong>. This was the architectural decision that shaped everything else.</p>
       </div>
 
       <h3 class="section-h">Calibration</h3>
       <div class="prose">
-        <p>Scoring logic was tuned against 11 anonymized student papers with verified 2025 AP Research scores across the 2-to-5 range, plus named exemplar anchors at Scores 3, 4, and 5. Two rubric principles were encoded from that calibration:</p>
+        <p>Scoring logic was tuned against <strong>11 anonymized student papers with verified 2025 AP Research scores</strong> across the 2-to-5 range, plus named exemplar anchors at Scores 3, 4, and 5. Two rubric principles were encoded from that calibration:</p>
         <ul class="clean">
-          <li>The method row gates the new-understanding row. A weak method score suppresses the new-understanding score regardless of other strengths.</li>
-          <li>Statistical overclaiming from small samples is the most common separator between adjacent score levels. Papers that honestly acknowledge non-significant results score higher than papers that inflate claims.</li>
+          <li><strong>The method row gates the new-understanding row.</strong> A weak method score suppresses the new-understanding score regardless of other strengths.</li>
+          <li><strong>Statistical overclaiming from small samples</strong> is the most common separator between adjacent score levels. Papers that honestly acknowledge non-significant results score higher than papers that inflate claims.</li>
         </ul>
       </div>
 
       <h3 class="section-h">Differentiation Across Subjects and Formats</h3>
       <div class="prose">
-        <p>AP Research is topic-agnostic. Students choose their own research questions, so any given cohort produces papers spanning biology experiments, sociological surveys, historical analyses, literature reviews, and design-based creative projects. Each subject area carries different disciplinary conventions for what counts as strong scholarship.</p>
+        <p>AP Research is <strong>topic-agnostic</strong>. Students choose their own research questions, so any given cohort produces papers spanning biology experiments, sociological surveys, historical analyses, literature reviews, and design-based creative projects. Each subject area carries different disciplinary conventions for what counts as strong scholarship.</p>
         <p>The methods layer adds a second axis. The course accepts quantitative, qualitative, mixed-methods, and artistic-design papers. A correlational paper has statistical analysis; a thematic analysis has coding schemes; an artistic process paper has an aesthetic rationale rather than findings. Method as a rubric row looks radically different across these.</p>
-        <p>The tool holds the rubric constant while adapting to the paper in front of it. A physics paper does not get feedback shaped by literary analysis norms; a qualitative paper is not penalized for lacking p-values it should not have.</p>
+        <p>The tool <strong>holds the rubric constant while adapting to the paper in front of it.</strong> A physics paper does not get feedback shaped by literary analysis norms; a qualitative paper is not penalized for lacking p-values it should not have.</p>
       </div>
+
+      <figure class="shot shot-solo">
+        <img src="images/paper-rubric.png" alt="Rubric Analysis section showing Row A Topic Purpose and Focus and Row B Method Process each with a bolded rubric criterion and a paragraph of paper-specific analysis">
+        <figcaption><strong>Row-by-row rubric analysis</strong> in action. Each row names the rubric criterion, then explains where this specific paper meets or misses it, citing the paper's own findings and framing. The disciplinary reading adapts; the rubric does not.</figcaption>
+      </figure>
 
       <h3 class="section-h">Diagnosis Wired to Remediation</h3>
       <div class="prose">
-        <p>Every weakness the tool surfaces is mapped to a specific chapter in a textbook students already have access to. Galvan and Galvan (Writing Literature Reviews) for lit-review weaknesses. Leedy and Ormrod (Practical Research) for method and design weaknesses. A paper with a strong lit review but a weak method gets only the Leedy and Ormrod recommendation. Students get the next step, not just the verdict.</p>
+        <p>Every weakness the tool surfaces is mapped to a specific chapter in a textbook students already have access to. <strong>Galvan and Galvan (Writing Literature Reviews)</strong> for lit-review weaknesses. <strong>Leedy and Ormrod (Practical Research)</strong> for method and design weaknesses. A paper with a strong lit review but a weak method gets only the Leedy and Ormrod recommendation. Students get the next step, not just the verdict.</p>
+      </div>
+
+      <div class="shots two">
+        <figure class="shot">
+          <img src="images/paper-sections.png" alt="Section-by-Section Feedback panel showing six paper sections each with an Adequate or Weak status label color-coded amber for adequate and orange for weak">
+          <figcaption><strong>Section-by-section status</strong> at a glance: six sections color-coded Adequate or Weak. The reader sees where the paper holds and where it breaks before opening any single section.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="images/paper-resources.png" alt="Recommended Resources listing showing Galvan and Galvan chapter mappings for lit review weaknesses and Leedy and Ormrod chapter mappings for method and design weaknesses">
+          <figcaption><strong>Chapter-level textbook mapping.</strong> Each recommendation names the exact chapter and states why this paper needs it, in one sentence tied to the weakness the tool actually found.</figcaption>
+        </figure>
       </div>
 
       <h3 class="section-h">Deployment Status</h3>
@@ -668,7 +700,7 @@
 
       <h3 class="section-h">Craft Note</h3>
       <div class="prose">
-        <p>Free Claude.ai accounts have a daily message limit. The student handout boxes two warnings at the top: paste plain text rather than uploading, and do not burn the daily limit on trivial runs. The tool is fast, but a student running it three times back-to-back on the same draft is out of feedback for the day.</p>
+        <p>Free Claude.ai accounts have a <strong>daily message limit</strong>. The student handout boxes two warnings at the top: paste plain text rather than uploading, and do not burn the daily limit on trivial runs. The tool is fast, but a student running it three times back-to-back on the same draft is out of feedback for the day.</p>
       </div>
 
       <div class="metrics">
@@ -676,10 +708,6 @@
         <div class="metric"><span class="num">6</span><span class="cap">rubric rows scored, mapped to targeted revision suggestions</span><span class="tag">recorded</span></div>
         <div class="metric"><span class="num">$0</span><span class="cap">cost to any student to reach the tool</span><span class="tag">verified</span></div>
         <div class="metric"><span class="num">&lt;60s</span><span class="cap">turnaround per full paper analysis</span><span class="tag">recorded</span></div>
-      </div>
-
-      <div class="panel-links">
-        <a class="demo" href="https://claude.ai/public/artifacts/b1ec5d56-874e-42bb-9083-440332fa6644" target="_blank" rel="noopener"><span>Open the Paper Analyzer</span><span class="arr">&rarr;</span></a>
       </div>
 
       <div class="comp-tags">
@@ -739,10 +767,6 @@
           <img src="images/rq-journey.png" alt="Final revision journey showing original RQ, after-training RQ, and final RQ side by side with paper tips">
           <figcaption>Step 11: The revision journey summary, showing how the RQ moved across the workshop.</figcaption>
         </figure>
-      </div>
-
-      <div class="panel-links">
-        <a class="demo" href="https://claude.ai/public/artifacts/f193357a-d954-499b-9648-e7d555156c34" target="_blank" rel="noopener"><span>Open the RQ Workshop</span><span class="arr">&rarr;</span></a>
       </div>
 
       <div class="comp-tags">
@@ -811,8 +835,6 @@
         <a href="mailto:colleenmschmidt@gmail.com">Email</a>
         <a href="https://www.linkedin.com/in/colleen-schmidt-110a8a299" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://wonkwonkx10.github.io/speeds-explorer/" target="_blank" rel="noopener">SPEEDS Explorer</a>
-        <a href="https://claude.ai/public/artifacts/b1ec5d56-874e-42bb-9083-440332fa6644" target="_blank" rel="noopener">Paper Analyzer</a>
-        <a href="https://claude.ai/public/artifacts/f193357a-d954-499b-9648-e7d555156c34" target="_blank" rel="noopener">RQ Workshop</a>
       </div>
       <div class="foot"><span>Colleen Schmidt</span><span>colleenschmidt.com</span></div>
     </div>

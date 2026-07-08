@@ -241,6 +241,37 @@
     font-size:1.1rem;cursor:pointer;line-height:1;
   }
   .js .panel-close:hover{border-color:var(--amber);color:var(--amber-deep)}
+
+  /* Clickable screenshots + lightbox */
+  .panel figure.shot img{cursor:zoom-in;transition:transform 0.2s ease,box-shadow 0.2s ease}
+  .panel figure.shot img:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(0,0,0,0.25)}
+  .lightbox{
+    position:fixed;inset:0;background:rgba(10,20,32,0.94);
+    z-index:9999;display:none;align-items:center;justify-content:center;
+    padding:clamp(1rem,3vw,3rem);cursor:zoom-out;
+    animation:lb-fade 0.15s ease
+  }
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:100%;max-height:100%;object-fit:contain;border-radius:4px;box-shadow:0 12px 60px rgba(0,0,0,0.5);cursor:default}
+  .lightbox-close{
+    position:absolute;top:1rem;right:1rem;
+    width:44px;height:44px;border-radius:50%;
+    background:rgba(247,242,232,0.1);border:1px solid rgba(247,242,232,0.3);
+    color:var(--paper);font-size:1.6rem;line-height:1;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background 0.15s,border-color 0.15s
+  }
+  .lightbox-close:hover{background:rgba(247,242,232,0.2);border-color:var(--amber)}
+  .lightbox-hint{
+    position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+    font-family:var(--f-mono);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;
+    color:rgba(247,242,232,0.55);pointer-events:none
+  }
+  @keyframes lb-fade{from{opacity:0}to{opacity:1}}
+  @media (max-width:640px){
+    .lightbox-hint{display:none}
+    .lightbox-close{top:0.6rem;right:0.6rem}
+  }
   html.anim .js .panel.open .panel-inner{animation:rise .32s ease both}
   @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
   @media (prefers-reduced-motion:reduce){html.anim .js .panel.open .panel-inner{animation:none}}
@@ -499,24 +530,25 @@
         <p>The module rests on a 70-method source catalog built before any lesson was drafted. Every method entry records its source and page range first, so every written definition is a verified jump to a cited passage rather than a guess. Where a phrasing was the module's own synthesis rather than a sourced quote, it was flagged as such rather than dressed up as authority. This discipline carries into the module copy directly.</p>
       </div>
 
-      <div class="shots two">
-        <figure class="shot">
-          <img src="images/lucy-perspective.png" alt="Lesson 2 of Lucy's Methods Lab: Your perspective is a filter, showing Lucy with a blue filter overlay to visualize the concept">
-          <figcaption>Lesson 2: making an abstract concept (perspective as a filter) visible through the held-constant subject.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="images/lucy-four-parts.png" alt="Lesson 3 of Lucy's Methods Lab: Four things you can name about any method, showing two researchers from different disciplines with clipboards observing Lucy">
-          <figcaption>Lesson 3: two disciplines interpreting the same subject, the fastest way to make the method-versus-tool distinction land.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="images/lucy-process-diagram.png" alt="Lesson 4 of Lucy's Methods Lab: How to read the menu, showing a research methods process diagram with subject, tool, methods, and claim columns">
-          <figcaption>Lesson 4: the process diagram. Subject held constant, tool held constant, methods vary, claims diverge.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="images/lucy-grid.png" alt="Lesson 12 of Lucy's Methods Lab: The grid, showing all seven methods arranged around two Lucys with color-coded tiles">
-          <figcaption>Lesson 12: the synthesis. Seven methods placed by family, by tool, and by what each can and cannot claim.</figcaption>
-        </figure>
-      </div>
+      <figure class="shot shot-solo">
+        <img src="images/lucy-perspective.png" alt="Lesson 2 of Lucy's Methods Lab: Your perspective is a filter, showing Lucy with a blue filter overlay to visualize the concept">
+        <figcaption>Lesson 2: making an abstract concept (perspective as a filter) visible through the held-constant subject.</figcaption>
+      </figure>
+
+      <figure class="shot shot-solo">
+        <img src="images/lucy-four-parts.png" alt="Lesson 3 of Lucy's Methods Lab: Four things you can name about any method, showing two researchers from different disciplines with clipboards observing Lucy">
+        <figcaption>Lesson 3: two disciplines interpreting the same subject, the fastest way to make the method-versus-tool distinction land.</figcaption>
+      </figure>
+
+      <figure class="shot shot-solo">
+        <img src="images/lucy-process-diagram.png" alt="Lesson 4 of Lucy's Methods Lab: How to read the menu, showing a research methods process diagram with subject, tool, methods, and claim columns">
+        <figcaption>Lesson 4: the process diagram. Subject held constant, tool held constant, methods vary, claims diverge.</figcaption>
+      </figure>
+
+      <figure class="shot shot-solo">
+        <img src="images/lucy-grid.png" alt="Lesson 12 of Lucy's Methods Lab: The grid, showing all seven methods arranged around two Lucys with color-coded tiles">
+        <figcaption>Lesson 12: the synthesis. Seven methods placed by family, by tool, and by what each can and cannot claim.</figcaption>
+      </figure>
 
       <div class="metrics">
         <div class="metric"><span class="num">70</span><span class="cap">methods catalogued with source and page recorded first</span><span class="tag">recorded, not re-counted</span></div>
@@ -573,28 +605,30 @@
         <p>Canvas's .imscc sanitizer strips style blocks and external fonts on import. Every page is authored in inline CSS with that constraint held in mind; the design system (dark green headers, gold accent rule, monospace time badges) survives the import because it was built to.</p>
       </div>
 
-      <div class="shots three">
-        <figure class="shot">
-          <img src="images/canvas-01.png" alt="Task Verbs and the FRQ page in the Canvas APHG Teacher Launchpad">
-          <figcaption>A page-level view: the design system survives the .imscc sanitizer through inline CSS.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="images/canvas-02.png" alt="Landing view of the Canvas course showing the three-domain framing and six paths">
-          <figcaption>The whole architecture on one page: three domains, self-assessment, six paths.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="images/canvas-03.png" alt="How This Course Works page showing the three-domain framework">
-          <figcaption>The three-domain framework named explicitly for the learner.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="images/canvas-04.png" alt="Thinking Like a Geographer page teaching scale, pattern, process">
-          <figcaption>Skills page: geographer-specific pedagogy, not generic APHG content.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="images/canvas-05.png" alt="Modules view showing prerequisite wiring on all six modules">
-          <figcaption>Prerequisite chains resolved cleanly on .imscc import.</figcaption>
-        </figure>
-      </div>
+      <figure class="shot shot-solo">
+        <img src="images/canvas-01.png" alt="Task Verbs and the FRQ page in the Canvas APHG Teacher Launchpad">
+        <figcaption>A page-level view: the design system survives the .imscc sanitizer through inline CSS.</figcaption>
+      </figure>
+
+      <figure class="shot shot-solo">
+        <img src="images/canvas-02.png" alt="Landing view of the Canvas course showing the three-domain framing and six paths">
+        <figcaption>The whole architecture on one page: three domains, self-assessment, six paths.</figcaption>
+      </figure>
+
+      <figure class="shot shot-solo">
+        <img src="images/canvas-03.png" alt="How This Course Works page showing the three-domain framework">
+        <figcaption>The three-domain framework named explicitly for the learner.</figcaption>
+      </figure>
+
+      <figure class="shot shot-solo">
+        <img src="images/canvas-04.png" alt="Thinking Like a Geographer page teaching scale, pattern, process">
+        <figcaption>Skills page: geographer-specific pedagogy, not generic APHG content.</figcaption>
+      </figure>
+
+      <figure class="shot shot-solo">
+        <img src="images/canvas-05.png" alt="Modules view showing prerequisite wiring on all six modules">
+        <figcaption>Prerequisite chains resolved cleanly on .imscc import.</figcaption>
+      </figure>
 
       <div class="comp-tags">
         <strong>Competencies:</strong> adult learning principles · WCAG 2.1 AA · LMS authoring · portable course packaging · self-directed learning paths · experience-tiered design
@@ -639,16 +673,19 @@
         <p>Every strength, weakness, and fix references specific passages in the student's own paper. No generic advice.</p>
       </div>
 
-      <div class="shots two">
-        <figure class="shot">
-          <img src="images/paper-score.png" alt="Analyzer output showing a 3 out of 5 score circle labeled Ineffectual Argument, a paragraph of score justification, and a word count assessment for the paper">
-          <figcaption>The <strong>holistic score</strong> arrives with a justification that names what carries the paper and what caps it, then a word-count read tied to specific under-developed sections.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="images/paper-priorities.png" alt="Top Priorities to Raise Your Score section showing a numbered priority tied to specific findings in the student's paper">
-          <figcaption><strong>Ranked revision priorities</strong> lead each recommendation with the specific finding or move it targets, quantities pulled from the paper itself, and the rubric row it strengthens.</figcaption>
-        </figure>
+      <figure class="shot shot-solo">
+        <img src="images/paper-score.png" alt="Analyzer output showing a 3 out of 5 score circle labeled Ineffectual Argument, a paragraph of score justification, and a word count assessment for the paper">
+        <figcaption>The <strong>holistic score</strong> arrives with a justification that names what carries the paper and what caps it, then a word-count read tied to specific under-developed sections.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <p>Beneath the score sits the actionable half: the moves that would raise it. <strong>Ranked revision priorities</strong> lead each recommendation with the specific finding it targets, quantities pulled from the paper itself, and the rubric row it strengthens.</p>
       </div>
+
+      <figure class="shot shot-solo">
+        <img src="images/paper-priorities.png" alt="Top Priorities to Raise Your Score section showing a numbered priority tied to specific findings in the student's paper">
+        <figcaption>Priority 1 for this paper. Notice the specific findings and framework names (72%, 59%, 2.8%, 95%; Vargas's 'linked fate'). The tool cites the paper it is reading, not a template.</figcaption>
+      </figure>
 
       <h3 class="section-h">Architecture: Equity as a Design Constraint</h3>
       <div class="prose">
@@ -679,19 +716,22 @@
 
       <h3 class="section-h">Diagnosis Wired to Remediation</h3>
       <div class="prose">
-        <p>Every weakness the tool surfaces is mapped to a specific chapter in a textbook students already have access to. <strong>Galvan and Galvan (Writing Literature Reviews)</strong> for lit-review weaknesses. <strong>Leedy and Ormrod (Practical Research)</strong> for method and design weaknesses. A paper with a strong lit review but a weak method gets only the Leedy and Ormrod recommendation. Students get the next step, not just the verdict.</p>
+        <p>Every weakness the tool surfaces is mapped to a specific chapter in a textbook students already have access to. The first pass is a section-by-section verdict, color-coded so the reader sees where the paper holds and where it breaks at a glance.</p>
       </div>
 
-      <div class="shots two">
-        <figure class="shot">
-          <img src="images/paper-sections.png" alt="Section-by-Section Feedback panel showing six paper sections each with an Adequate or Weak status label color-coded amber for adequate and orange for weak">
-          <figcaption><strong>Section-by-section status</strong> at a glance: six sections color-coded Adequate or Weak. The reader sees where the paper holds and where it breaks before opening any single section.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="images/paper-resources.png" alt="Recommended Resources listing showing Galvan and Galvan chapter mappings for lit review weaknesses and Leedy and Ormrod chapter mappings for method and design weaknesses">
-          <figcaption><strong>Chapter-level textbook mapping.</strong> Each recommendation names the exact chapter and states why this paper needs it, in one sentence tied to the weakness the tool actually found.</figcaption>
-        </figure>
+      <figure class="shot shot-solo">
+        <img src="images/paper-sections.png" alt="Section-by-Section Feedback panel showing six paper sections each with an Adequate or Weak status label color-coded amber for adequate and orange for weak">
+        <figcaption><strong>Section-by-section status</strong>: six sections, each an Adequate or Weak verdict, expandable for detail. In this paper, Introduction and Method are holding; Discussion and Conclusion are the score-caps.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <p>For any weakness the section pass reveals, the tool wires in a specific chapter next step. <strong>Galvan and Galvan (Writing Literature Reviews)</strong> for lit-review weaknesses. <strong>Leedy and Ormrod (Practical Research)</strong> for method and design weaknesses. A paper with a strong lit review but a weak method gets only the Leedy and Ormrod recommendation. Students get the next step, not just the verdict.</p>
       </div>
+
+      <figure class="shot shot-solo">
+        <img src="images/paper-resources.png" alt="Recommended Resources listing showing Galvan and Galvan chapter mappings for lit review weaknesses and Leedy and Ormrod chapter mappings for method and design weaknesses">
+        <figcaption><strong>Chapter-level textbook mapping.</strong> Each recommendation names the exact chapter and states why this paper needs it, in one sentence tied to the weakness the tool actually found.</figcaption>
+      </figure>
 
       <h3 class="section-h">Deployment Status</h3>
       <div class="prose">
@@ -750,24 +790,26 @@
       </div>
 
       <h3 class="section-h">The Workflow in Screenshots</h3>
-      <div class="shots two">
-        <figure class="shot">
-          <img src="images/rq-evaluation.png" alt="RQ evaluation screen showing the four dimensions (Focus and Scope, Researchability, Open-Endedness, Gap Potential) with color-coded status for a historiography research question">
-          <figcaption>Step 2: The RQ evaluation, four dimensions with specific critique on each. Historiography example.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="images/rq-training.png" alt="Researchability training screen with What This Means, Why It Matters, Common Mistakes, Strategy, and worked examples">
-          <figcaption>Step 3: Targeted training on a weak dimension, with worked examples in both quantitative and qualitative modes.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="images/rq-alignment.png" alt="Alignment analysis screen showing weak alignment between a research question and method, with specific mismatches named">
-          <figcaption>Step 7: The alignment check that names exactly where the RQ and method diverge. Biology example.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="images/rq-journey.png" alt="Final revision journey showing original RQ, after-training RQ, and final RQ side by side with paper tips">
-          <figcaption>Step 11: The revision journey summary, showing how the RQ moved across the workshop.</figcaption>
-        </figure>
-      </div>
+
+      <figure class="shot shot-solo">
+        <img src="images/rq-evaluation.png" alt="RQ evaluation screen showing the four dimensions (Focus and Scope, Researchability, Open-Endedness, Gap Potential) with color-coded status for a historiography research question">
+        <figcaption>Step 2: The RQ evaluation, four dimensions with specific critique on each. Historiography example.</figcaption>
+      </figure>
+
+      <figure class="shot shot-solo">
+        <img src="images/rq-training.png" alt="Researchability training screen with What This Means, Why It Matters, Common Mistakes, Strategy, and worked examples">
+        <figcaption>Step 3: Targeted training on a weak dimension, with worked examples in both quantitative and qualitative modes.</figcaption>
+      </figure>
+
+      <figure class="shot shot-solo">
+        <img src="images/rq-alignment.png" alt="Alignment analysis screen showing weak alignment between a research question and method, with specific mismatches named">
+        <figcaption>Step 7: The alignment check that names exactly where the RQ and method diverge. Biology example.</figcaption>
+      </figure>
+
+      <figure class="shot shot-solo">
+        <img src="images/rq-journey.png" alt="Final revision journey showing original RQ, after-training RQ, and final RQ side by side with paper tips">
+        <figcaption>Step 11: The revision journey summary, showing how the RQ moved across the workshop.</figcaption>
+      </figure>
 
       <div class="comp-tags">
         <strong>Competencies:</strong> Anthropic API integration · adaptive design across methods · alignment coaching · real-time formative feedback · low-stakes practice for high-stakes decisions
@@ -841,6 +883,13 @@
   </footer>
 
 </main>
+
+<!-- Lightbox for enlarged screenshots -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Enlarged screenshot">
+  <button class="lightbox-close" type="button" aria-label="Close enlarged image">&times;</button>
+  <img alt="" />
+  <span class="lightbox-hint">Click outside the image or press Esc to close</span>
+</div>
 
 <script>
   (function(){
@@ -916,6 +965,48 @@
       entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
     document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  })();
+
+  // Screenshot lightbox
+  (function(){
+    var lightbox = document.getElementById('lightbox');
+    if(!lightbox) return;
+    var lightboxImg = lightbox.querySelector('img');
+    var lightboxClose = lightbox.querySelector('.lightbox-close');
+    var lastFocused = null;
+
+    function openLightbox(sourceImg){
+      lastFocused = document.activeElement;
+      lightboxImg.src = sourceImg.src;
+      lightboxImg.alt = sourceImg.alt || '';
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      lightboxClose.focus();
+    }
+
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+      if(lastFocused && lastFocused.focus) lastFocused.focus();
+    }
+
+    document.querySelectorAll('.panel figure.shot img').forEach(function(img){
+      img.addEventListener('click', function(){ openLightbox(img); });
+    });
+
+    lightbox.addEventListener('click', function(e){
+      if(e.target === lightbox || e.target === lightboxClose) closeLightbox();
+    });
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && lightbox.classList.contains('open')){
+        e.preventDefault();
+        closeLightbox();
+      }
+    });
   })();
 </script>
 

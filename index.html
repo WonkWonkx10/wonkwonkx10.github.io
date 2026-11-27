@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Colleen Schmidt · Instructional Designer</title>
-<meta name="description" content="Instructional designer and AP Capstone teacher. Five deployed tools, built to real deployment constraints, with the design decisions and outcome data behind them.">
+<meta name="description" content="Instructional designer and AP Capstone teacher. Deployed tools, built to real deployment constraints, with the design decisions and outcome data behind them.">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Colleen Schmidt · Instructional Designer">
-<meta property="og:description" content="Five deployed tools, built to real deployment constraints, with the design decisions and outcome data behind them.">
+<meta property="og:description" content="Deployed tools, built to real deployment constraints, with the design decisions and outcome data behind them.">
 <meta property="og:url" content="https://colleenschmidt.com">
 <!-- <meta property="og:image" content="https://colleenschmidt.com/preview.png"> -->
 <meta name="twitter:card" content="summary_large_image">
@@ -88,7 +88,7 @@
   .outcomes-tile p{margin:0;font-size:0.98rem;color:#2c3a33}
   .outcomes-tile strong{color:var(--ink)}
 
-  /* artifact cards: 5-card grid */
+  /* artifact cards grid */
   .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem}
   @media (max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media (max-width:620px){.cards{grid-template-columns:1fr}}
@@ -175,6 +175,11 @@
   .metric .num{font-family:var(--f-display);font-weight:600;font-size:clamp(1.7rem,3.2vw,2.3rem);line-height:1;color:var(--amber-deep)}
   .metric .cap{display:block;margin-top:0.45rem;font-size:0.85rem;line-height:1.35;color:#3a463f;max-width:24ch}
   .metric .tag{margin-top:0.4rem}
+
+  /* embedded video, 16:9 */
+  .video-frame{position:relative;aspect-ratio:16/9;background:#1B1D21;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .panel .note a{color:var(--ink)}
 
   .panel-links{margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem 1.6rem;align-items:center}
   .demo{display:inline-flex;align-items:center;gap:0.55rem;font-family:var(--f-mono);font-size:0.8rem;letter-spacing:0.04em;text-decoration:none;color:var(--ink);border-bottom:2px solid var(--amber);padding-bottom:2px;transition:gap .18s,color .18s}
@@ -297,8 +302,8 @@
     <div class="wrap">
       <div class="lead-head reveal">
         <span class="eyebrow">Instructional Design · Portfolio</span>
-        <h1>Five deployed tools, built to <em>real</em> deployment <em>constraints</em>.</h1>
-        <p class="lead-sub">Each artifact below was shipped to students or teachers in the last two academic years, with the design decisions and, where available, the outcome data behind it. Figures carry confidence tags: verified, recorded, or approximate.</p>
+        <h1>Deployed tools, built to <em>real</em> deployment <em>constraints</em>.</h1>
+        <p class="lead-sub">Each artifact below was shipped to students or teachers in the last two academic years, with the design decisions and, where available, the outcome data behind it. Figures carry confidence tags: verified, recorded, or approximate. One piece is marked as a concept: built for a workplace-safety audience and not yet piloted.</p>
       </div>
 
       <!-- OUTCOMES TILE: portfolio-wide context, not a card -->
@@ -329,6 +334,18 @@
             <span class="ctag">Rise 360</span>
             <span class="ctag">GT pedagogy</span>
             <span class="ctag">needs analysis</span>
+          </div>
+          <span class="open">Open case <span class="arr">&rarr;</span></span>
+        </a>
+
+        <a class="card" href="#panel-selector" data-modal="panel-selector">
+          <span class="k">Live · AP Research</span>
+          <h3>Method Selector: Pick Your Lens</h3>
+          <p>A branching selector that takes a student from their own research question to one of 25 method cards, then checks the planned tool against it. One file, built to embed in an LMS.</p>
+          <div class="tags-row">
+            <span class="ctag">branching design</span>
+            <span class="ctag">performance support</span>
+            <span class="ctag">LMS embed</span>
           </div>
           <span class="open">Open case <span class="arr">&rarr;</span></span>
         </a>
@@ -365,6 +382,18 @@
             <span class="ctag">Anthropic API</span>
             <span class="ctag">adaptive design</span>
             <span class="ctag">alignment coaching</span>
+          </div>
+          <span class="open">Open case <span class="arr">&rarr;</span></span>
+        </a>
+
+        <a class="card" href="#panel-swa" data-modal="panel-swa">
+          <span class="k">Concept · Workplace safety</span>
+          <h3>Stop Work Authority: Say It Before They Climb</h3>
+          <p>A microlearning video, a one-page quick reference guide, and an AI roleplay that teach one script for stopping unsafe work. A concept piece, not yet piloted.</p>
+          <div class="tags-row">
+            <span class="ctag">Synthesia</span>
+            <span class="ctag">microlearning</span>
+            <span class="ctag">job aid</span>
           </div>
           <span class="open">Open case <span class="arr">&rarr;</span></span>
         </a>
@@ -819,6 +848,235 @@
     </div>
   </section>
 
+  <!-- ================= PANEL: METHOD SELECTOR (PICK YOUR LENS) ================= -->
+  <section class="panel" id="panel-selector" role="dialog" aria-modal="true" aria-labelledby="selector-title" tabindex="-1">
+    <div class="panel-inner">
+      <button class="panel-close" type="button" aria-label="Close">&times;</button>
+      <span class="k">Pick Your Lens · Live for AP Research</span>
+      <h2 id="selector-title">A method selector that suggests, then hands the decision back</h2>
+      <p class="sub">Here's the decision students stall on: choosing a research method before they can defend it. Pick Your Lens walks a student from their own question to one of 25 method cards, checks that the tool they planned actually feeds that method, and then stops; the justification stays the student's to write. The whole tool is one HTML file, so it opens from a link or sits inside an LMS page.</p>
+
+      <figure class="shot hero-shot">
+        <img src="images/method-selector-home.jpg" alt="Pick Your Lens start screen with a Read this first note stating the tool helps you choose and does not choose for you, and buttons for Start, How to use this, Browse all cards, and Other methods">
+        <figcaption>The start screen states the limit before the first question: the tool suggests a method, and the student can overrule it with sources.</figcaption>
+      </figure>
+
+      <h3 class="section-h">The Problem</h3>
+      <div class="prose">
+        <p>Lucy's Methods Lab teaches what a method is. A student who already has a research question still has to decide which method fits it, and often arrives with a tool (a survey, a set of interviews) and no named method behind it. The selector is the performance support for that decision point.</p>
+      </div>
+
+      <h3 class="section-h">What I Built</h3>
+      <div class="prose">
+        <p>A branching path of six or seven questions that sorts a research question into a family, narrows it to a method, and ends on a card stating what that method can claim, what it cannot, and the limitation the student will have to own. A tool check then tests the planned instrument against the chosen method and returns a plain verdict, including MISFIT when the two do not align.</p>
+        <ul class="clean">
+          <li><strong>25 method cards</strong> in four families: 15 landing cards, 9 pointer cards that route to the closest landing card, and 1 redirect.</li>
+          <li><strong>Tool check:</strong> 70 alignment rows from the course table, plus 48 further rows marked as proposed in the build record.</li>
+          <li><strong>Reference layers:</strong> 43 second-tier methods, a 23-term glossary, and 79 journal links, each identified by title, author, year, and journal.</li>
+          <li><strong>A How to use page</strong> built from 12 pictures of the tool's own screens, each with a light and a dark copy.</li>
+        </ul>
+      </div>
+
+      <figure class="shot shot-solo">
+        <img src="images/method-selector-cards.jpg" alt="All cards view of Pick Your Lens showing Quantitative and Qualitative families with cards labelled Landing, Pointer, or Redirect">
+        <figcaption>All cards: a student who already knows the method can skip the questions. Pointer cards describe a method and route to its closest landing card.</figcaption>
+      </figure>
+
+      <div class="needs">
+        <div class="need">
+          <div class="n-need">A selector can read as a ruling, and students stop thinking once a tool has answered.</div>
+          <div class="n-resp"><span class="lbl">Response</span>Every path offers an overrule: "This is my lens" on any card and "Keep it anyway" on a MISFIT, with the reminder that the justification then has to explain why.</div>
+        </div>
+        <div class="need">
+          <div class="n-need">Students cite the tool instead of the textbook behind it.</div>
+          <div class="n-resp"><span class="lbl">Response</span>A gray source line under each part gives the author, year, and page it came from; the page tells students to read that page and cite the textbook, not the tool.</div>
+        </div>
+        <div class="need">
+          <div class="n-need">District devices and LMS pages limit what can be installed or signed into.</div>
+          <div class="n-resp"><span class="lbl">Response</span>One file with no build step, no accounts, and no student data leaving the browser. The pictures on the How to use page are stored inside the file so it stays a single upload.</div>
+        </div>
+      </div>
+
+      <h3 class="section-h">LMS Embedding</h3>
+      <div class="prose">
+        <p>The selector is served as a single self-contained page with no frame-blocking headers (response headers checked November 26, 2026), so it can be linked from a Canvas module or placed inside a Canvas page as an embedded frame. The question path was first built as a branching interaction in Articulate Storyline 360; the web version carries the same path, minus the doorway screen, so it runs without a player or a published package.</p>
+      </div>
+
+      <figure class="shot shot-solo">
+        <img src="images/method-selector-help.jpg" alt="How to use this page of Pick Your Lens, section 1 titled This is a tool, not the final word, listing four ways to overrule the suggestion">
+        <figcaption>The How to use page opens with how to overrule the tool. The pictures on it are real screens; a red outline marks the thing to click.</figcaption>
+      </figure>
+
+      <h3 class="section-h">Craft Note</h3>
+      <div class="prose">
+        <p>Version 9 added the 12 screen pictures and grew the file from about 290 KB to about 1.68 MB. That trade was deliberate: the tool stays one file that uploads in a single step. The cost is recorded in the build notes; if a card is reworded, the pictures have to be taken again.</p>
+      </div>
+
+      <div class="metrics">
+        <div class="metric"><span class="num">25</span><span class="cap">method cards across four families</span><span class="tag">recorded</span></div>
+        <div class="metric"><span class="num">79</span><span class="cap">journal links, each identified by title, author, year, and journal</span><span class="tag">recorded</span></div>
+        <div class="metric"><span class="num">9</span><span class="cap">released versions, each with a written change note</span><span class="tag">recorded</span></div>
+        <div class="metric"><span class="num">1</span><span class="cap">file runs the whole tool, with no accounts and no backend</span><span class="tag">verified</span></div>
+      </div>
+
+      <div class="panel-links">
+        <a class="demo" href="https://colleenschmidt.com/method-selector/" target="_blank" rel="noopener"><span>Open the Method Selector</span><span class="arr">&rarr;</span></a>
+        <a class="demo" href="https://colleenschmidt.com/method-selector/#help" target="_blank" rel="noopener"><span>See the How to use page</span><span class="arr">&rarr;</span></a>
+      </div>
+
+      <div class="comp-tags">
+        <strong>Competencies:</strong> branching scenario design · performance support · LMS-embeddable delivery · source discipline · version-controlled iteration · Storyline 360 to web rebuild
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PANEL: STOP WORK AUTHORITY (CONCEPT PIECE) ================= -->
+  <section class="panel" id="panel-swa" role="dialog" aria-modal="true" aria-labelledby="swa-title" tabindex="-1">
+    <div class="panel-inner">
+      <button class="panel-close" type="button" aria-label="Close">&times;</button>
+      <span class="k">Stop Work Authority · Concept piece, not piloted</span>
+      <h2 id="swa-title">Say it before they climb: giving new field employees the words</h2>
+      <p class="sub">Here's the gap this piece is built around: most safety training tells workers they have the authority to stop unsafe work; fewer give them the words. These three pieces teach one script, support it at the point of work, and let the learner rehearse it against pushback. It is a concept piece for a workplace-safety audience, not affiliated with any employer and not yet piloted with learners.</p>
+
+      <div class="video-frame hero-shot">
+        <iframe src="https://share.synthesia.io/embeds/videos/46bd04df-739a-4a96-8e98-6a176778bb02" title="Stop Work Authority: Say It Before They Climb, microlearning video, 1 minute 53 seconds" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+      <p class="note" style="max-width:640px;margin:0.6rem auto 0">Microlearning video built in Synthesia: 12 scenes, 1 minute 53 seconds, with a check-yourself question and answer. The watermark comes from the free plan. <a href="https://share.synthesia.io/46bd04df-739a-4a96-8e98-6a176778bb02" target="_blank" rel="noopener">Open the video in a new tab</a>.</p>
+
+      <h3 class="section-h">Why This Need Is Real</h3>
+      <div class="prose">
+        <p>Stop Work Authority is a company safety program rather than an OSHA course, and it is common across heavy industry. Bechtel's published supplier requirements state that all employees are granted Stop Work Authority; the Department of Energy's Hanford site and the Bureau of Reclamation publish similar policies. Where regulators have written it down, the language is direct: OSHA's crane standard gives an operator the authority to stop and refuse to handle loads when there is a safety concern (29 CFR 1926.1418), and offshore operators are required to maintain stop work procedures (30 CFR 250.1930).</p>
+        <p>The stakes are not abstract. The Bureau of Labor Statistics recorded 1,034 deaths in private construction in 2024, 389 of them from falls, slips, and trips. Yet having the authority and using it are different things. In focus groups with workers in the liquefied petroleum gas industry, researchers have found that stopping does not hinge on individual willingness alone; it also depends on the context around the decision (Weber, MacGregor, Provan &amp; Rae, 2018). This piece addresses one small part of that context: what to say.</p>
+      </div>
+
+      <h3 class="section-h">What I Built</h3>
+      <div class="prose">
+        <p>Three pieces around a single moment: week two on site, a crew lead starting up a scaffold with the top guardrail missing, and everyone else still working.</p>
+        <ul class="clean">
+          <li><strong>Teach it:</strong> a microlearning video that models one three-part script (the stop word, the specific hazard, the next step).</li>
+          <li><strong>Support it:</strong> a one-page quick reference guide, Letter size, meant to live where the work happens.</li>
+          <li><strong>Rehearse it:</strong> an AI roleplay in which a crew lead pushes back and the learner has to hold the line.</li>
+        </ul>
+      </div>
+
+      <div class="shots two">
+        <figure class="shot">
+          <img src="images/swa-video-moment.png" alt="Video scene titled The Moment, Week 2: your crew lead starts up a scaffold, everyone else keeps working, with a scaffold diagram marking the top guardrail as missing">
+          <figcaption>Scene 2 sets one concrete moment rather than a list of hazards. The learner is placed in it by name: week two, your crew lead.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="images/swa-video-script.png" alt="Video scene titled Say this instead, with the script: Stop. That guardrail is missing. Let's fix it before you go up.">
+          <figcaption>The script itself: stop word, specific hazard, next step. Text appears on screen as the narrator says it.</figcaption>
+        </figure>
+      </div>
+
+      <h3 class="section-h">Design Decisions and Sources</h3>
+      <div class="needs">
+        <div class="need">
+          <div class="n-need">Short segments, with on-screen text timed to the narration.</div>
+          <div class="n-resp"><span class="lbl">Source</span>Mayer's multimedia principles (segmenting, temporal contiguity). In an analysis of online course video, Guo, Kim &amp; Rubin (2014) found that shorter videos tended to hold viewers longer.</div>
+        </div>
+        <div class="need">
+          <div class="n-need">The wrong response is shown before the right one.</div>
+          <div class="n-resp"><span class="lbl">Source</span>In a meta-analysis of behavior modeling training, Taylor, Russ-Eft &amp; Chan (2005) found that transfer tended to be greater when learners saw both negative and positive models.</div>
+        </div>
+        <div class="need">
+          <div class="n-need">The video ends on an if-then plan: "If I see it, then I stop it."</div>
+          <div class="n-resp"><span class="lbl">Source</span>Researchers have found that if-then plans (implementation intentions) are associated with higher rates of following through on a goal (Gollwitzer &amp; Sheeran, 2006).</div>
+        </div>
+        <div class="need">
+          <div class="n-need">Escalation words for when the first attempt is brushed off: "I'm concerned. I'm uncomfortable. This is a safety issue."</div>
+          <div class="n-resp"><span class="lbl">Source</span>The CUS words from AHRQ TeamSTEPPS, a federal team-safety curriculum built for health care. Using them on a construction site is my adaptation, and the video says so on screen.</div>
+        </div>
+        <div class="need">
+          <div class="n-need">Cost figures are labelled as costs to society, not an employer's bill.</div>
+          <div class="n-resp"><span class="lbl">Source</span>National Safety Council, Injury Facts: $48,000 per medically consulted work injury and $1.54 million per work death in 2024. The Council states these reflect the impact on society, so the video and the guide carry that label.</div>
+        </div>
+      </div>
+
+      <div class="shots two">
+        <figure class="shot">
+          <img src="images/swa-video-how.png" alt="Video scene titled How to say it: it's an observation, not an accusation, with three cards: name the hazard not the person, offer the fix, and brushed off? step it up">
+          <figcaption>How to say it. Card 3 credits the escalation words to AHRQ TeamSTEPPS on screen.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="images/swa-video-check.png" alt="Video scene titled Check yourself, showing three possible replies to a crew lead and the answer B highlighted: I'm concerned. That rail is missing.">
+          <figcaption>Check yourself: the crew lead says "We're fine. It's two minutes." Three replies, then the answer with a reason for each.</figcaption>
+        </figure>
+      </div>
+
+      <div class="shots two">
+        <figure class="shot">
+          <img src="images/swa-video-math.png" alt="Video scene titled The Math: stopping is the cheap option, comparing minutes for one stop with $48,000 for one medically consulted injury and $1.54 million for one work death, with a source note that these are costs to society">
+          <figcaption>The cost comparison carries its own caveat on screen: costs to society, not an employer's bill, and bars not to scale.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="images/swa-video-plan.png" alt="Video scene titled Your Plan: If I see it, then I stop it">
+          <figcaption>The closing if-then plan, which the learner is asked to say out loud once.</figcaption>
+        </figure>
+      </div>
+
+      <h3 class="section-h">Performance Support: the Quick Reference Guide</h3>
+      <div class="prose">
+        <p>The guide carries the same script and the same three moves as the video, then adds what the video only gestures at: the six steps that follow a stop. It states that it supports a site's own stop work procedure and does not replace it.</p>
+      </div>
+
+      <figure class="shot shot-solo">
+        <img src="images/swa-quick-reference.png" alt="One-page Stop Work Authority quick reference guide with four blocks: Say this, How to say it, Then what: six steps, and Why it is worth the pause">
+        <figcaption>One page, Letter size. Every text and background pair on it was checked against the WCAG 2.1 AA contrast threshold of 4.5 to 1; the lowest pair measures 5.4 to 1.</figcaption>
+      </figure>
+      <!-- TODO before publishing the PDF link: upload the exported PDF to the repo as files/stop-work-authority-quick-reference.pdf, then uncomment.
+      <div class="panel-links">
+        <a class="demo" href="files/stop-work-authority-quick-reference.pdf" target="_blank" rel="noopener"><span>Download the guide (PDF)</span><span class="arr">&rarr;</span></a>
+      </div>
+      -->
+
+      <h3 class="section-h">Rehearsal: Practice With Ray</h3>
+      <div class="prose">
+        <p>A Synthesia roleplay session in which an AI crew lead named Ray wants to climb the scaffold and pushes back. The session scores four behaviors: saying stop early, naming the hazard and not the person, offering the fix, and escalating with the CUS words.</p>
+      </div>
+
+      <figure class="shot shot-solo">
+        <img src="images/swa-roleplay-ray.png" alt="Start screen of the Synthesia roleplay session Stop Work Authority: Practice With Ray, showing an AI avatar labelled Ray, Crew Lead">
+        <figcaption>The roleplay start screen. The session is built and its link is live; it has not yet been test-played, so no claim is made here about how the scoring performs.</figcaption>
+      </figure>
+
+      <div class="panel-links">
+        <a class="demo" href="https://share.synthesia.io/19d62ddb-1a94-4b2d-a7a2-a18e89cbaa86" target="_blank" rel="noopener"><span>Open the roleplay</span><span class="arr">&rarr;</span></a>
+        <span class="note">Free plan: limited plays each month, so the session may be unavailable.</span>
+      </div>
+
+      <h3 class="section-h">Accessibility</h3>
+      <div class="prose">
+        <p>What is in place: key content in the video appears as on-screen text as well as narration; the guide's color pairs meet AA contrast; images on this page carry text alternatives. What is not yet in place: the shared video player showed no caption track when checked on November 26, 2026, and the exported PDF has not been checked for tagging. Both are listed here as open items, not as claims.</p>
+      </div>
+
+      <h3 class="section-h">Limits</h3>
+      <div class="prose">
+        <ul class="clean">
+          <li>This is a concept piece. It has not been piloted with learners, and no outcome is claimed.</li>
+          <li>It complements site training such as the OSHA 10-hour course; it does not replace it.</li>
+          <li>It is one support within a larger system. Researchers have questioned whether assertiveness training and authority policies on their own change stop-work decisions (Havinga, Bancroft &amp; Rae, 2021), which is why the script is paired with a job aid and with rehearsal rather than offered alone.</li>
+        </ul>
+        <p><strong>Disclosure:</strong> I directed the design, scripting, and research; the storyboard build and Synthesia assembly were AI-assisted.</p>
+      </div>
+
+      <div class="metrics">
+        <div class="metric"><span class="num">1:53</span><span class="cap">run time across 12 scenes</span><span class="tag">verified</span></div>
+        <div class="metric"><span class="num">1</span><span class="cap">script, repeated across video, guide, and roleplay</span><span class="tag">recorded</span></div>
+        <div class="metric"><span class="num">389</span><span class="cap">of 1,034 private construction deaths in 2024 were falls, slips, and trips (BLS)</span><span class="tag">verified</span></div>
+        <div class="metric"><span class="num">0</span><span class="cap">learners piloted so far</span><span class="tag">verified</span></div>
+      </div>
+
+      <div class="comp-tags">
+        <strong>Sources:</strong> Bureau of Labor Statistics, Census of Fatal Occupational Injuries, 2024 · National Safety Council, Injury Facts, 2024 · Weber, MacGregor, Provan &amp; Rae (2018), Safety Science, 108, 149-160 · Havinga, Bancroft &amp; Rae (2021), Safety Science · Taylor, Russ-Eft &amp; Chan (2005) · Gollwitzer &amp; Sheeran (2006) · Guo, Kim &amp; Rubin (2014) · AHRQ TeamSTEPPS · 29 CFR 1926.1418 · 30 CFR 250.1930
+      </div>
+      <div class="comp-tags">
+        <strong>Competencies:</strong> microlearning · Synthesia video · quick reference guides · performance support · AI roleplay practice · evidence-based design · accessibility review
+      </div>
+    </div>
+  </section>
+
   <!-- APPROACH -->
   <section id="approach">
     <div class="wrap">
@@ -841,7 +1099,7 @@
       <div class="skills reveal">
         <span class="eyebrow">Toolkit</span>
         <div class="chips">
-          <span class="chip">Instructional Design</span><span class="chip">Curriculum Design</span><span class="chip">ADDIE</span><span class="chip">Needs Analysis</span><span class="chip">Assessment &amp; Rubric Design</span><span class="chip">Articulate Rise 360</span><span class="chip">Canvas LMS</span><span class="chip">WCAG 2.1 AA</span><span class="chip">EdTech Product</span><span class="chip">AI Application</span><span class="chip">Anthropic API</span><span class="chip">Prompt Engineering</span><span class="chip">React</span><span class="chip">JavaScript</span><span class="chip">Python</span><span class="chip">Data Modeling</span>
+          <span class="chip">Instructional Design</span><span class="chip">Curriculum Design</span><span class="chip">ADDIE</span><span class="chip">Needs Analysis</span><span class="chip">Assessment &amp; Rubric Design</span><span class="chip">Articulate Rise 360</span><span class="chip">Synthesia</span><span class="chip">Microlearning</span><span class="chip">Job Aids</span><span class="chip">Canvas LMS</span><span class="chip">WCAG 2.1 AA</span><span class="chip">EdTech Product</span><span class="chip">AI Application</span><span class="chip">Anthropic API</span><span class="chip">Prompt Engineering</span><span class="chip">React</span><span class="chip">JavaScript</span><span class="chip">Python</span><span class="chip">Data Modeling</span>
         </div>
       </div>
     </div>
@@ -921,6 +1179,7 @@
     function close(panel){
       panel.classList.remove('open');
       panel.hidden = true;
+      panel.querySelectorAll('iframe').forEach(function(f){ f.src = f.src; });
       panel.removeEventListener('keydown', onKey);
       document.body.style.overflow = '';
       if(lastTrigger){ lastTrigger.focus(); lastTrigger = null; }

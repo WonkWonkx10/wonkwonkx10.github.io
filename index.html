@@ -122,6 +122,13 @@
   .panel .comp-tags{margin-top:2rem;padding-top:1.4rem;border-top:1px dashed var(--line);font-family:var(--f-mono);font-size:0.78rem;color:var(--sage-deep);line-height:1.6}
   .panel .comp-tags strong{color:var(--ink);font-family:var(--f-body);font-weight:600;margin-right:0.5rem}
 
+  /* at-a-glance block at the top of each case */
+  .glance{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.9rem 2rem;margin:1.6rem 0;padding:1.2rem 1.4rem;background:var(--paper-2);border:1px solid var(--sage-lt);border-radius:3px}
+  .glance div:last-child{grid-column:1/-1}
+  .glance dt{font-family:var(--f-mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber-deep);margin-bottom:0.15rem}
+  .glance dd{margin:0;font-size:0.93rem;line-height:1.45;color:#2c3a33}
+  @media (max-width:640px){.glance{grid-template-columns:1fr}}
+
   .lbl{font-family:var(--f-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber-deep);margin-bottom:0.4rem}
 
   /* ADDIE image-rich phases */
@@ -315,7 +322,7 @@
       <div class="cards reveal">
 
         <a class="card" href="#panel-speeds" data-modal="panel-speeds">
-          <span class="k">Deployed · APHG</span>
+          <span class="k">Skills practice game · Deployed</span>
           <h3>SPEEDS Explorer</h3>
           <p>A landscape-reading game deployed to AP Human Geography students, built through all five ADDIE phases with the decisions behind each phase recorded.</p>
           <div class="tags-row">
@@ -327,7 +334,7 @@
         </a>
 
         <a class="card" href="#panel-lucy" data-modal="panel-lucy">
-          <span class="k">Deployed · AP Research</span>
+          <span class="k">Self-paced eLearning module · Deployed</span>
           <h3>Lucy's Methods Lab</h3>
           <p>A self-paced AP Research methods module in Articulate Rise 360, designed against peer-reviewed research on gifted learners and a 70-method source catalog.</p>
           <div class="tags-row">
@@ -339,7 +346,7 @@
         </a>
 
         <a class="card" href="#panel-swa" data-modal="panel-swa">
-          <span class="k">Concept · Workplace safety</span>
+          <span class="k">Microlearning and job aid · Concept</span>
           <h3>Stop Work Authority: Say It Before They Climb</h3>
           <p>A microlearning video, a one-page quick reference guide, and an AI roleplay that teach one script for stopping unsafe work. A concept piece, not yet piloted.</p>
           <div class="tags-row">
@@ -351,7 +358,7 @@
         </a>
 
         <a class="card" href="#panel-selector" data-modal="panel-selector">
-          <span class="k">Live · AP Research</span>
+          <span class="k">Decision-support tool · Live</span>
           <h3>Method Selector: Pick Your Lens</h3>
           <p>A branching selector that takes a student from their own research question to one of 25 method cards, then checks the planned tool against it. One file, built to embed in an LMS.</p>
           <div class="tags-row">
@@ -363,7 +370,7 @@
         </a>
 
         <a class="card" href="#panel-canvas" data-modal="panel-canvas">
-          <span class="k">Deployed · District</span>
+          <span class="k">Self-paced professional learning · Deployed</span>
           <h3>Canvas APHG Teacher Launchpad</h3>
           <p>A self-paced Canvas course supporting district APHG teachers at any stage, designed against WCAG 2.1 Level AA for the 2027 ADA Title II deadline.</p>
           <div class="tags-row">
@@ -375,7 +382,7 @@
         </a>
 
         <a class="card" href="#panel-analyzer" data-modal="panel-analyzer">
-          <span class="k">Deployed · AP Research</span>
+          <span class="k">AI rubric-assessment workflow · Deployed</span>
           <h3>AP Research Paper Analyzer</h3>
           <p>An AI feedback tool returning rubric-aligned scoring on a full paper in under a minute, running on free student accounts by architectural choice.</p>
           <div class="tags-row">
@@ -387,7 +394,7 @@
         </a>
 
         <a class="card" href="#panel-rq" data-modal="panel-rq">
-          <span class="k">Deployed · AP Research</span>
+          <span class="k">AI coaching workshop · Deployed</span>
           <h3>RQ and Method Alignment Workshop</h3>
           <p>An AI-integrated workshop that evaluates student research questions and methods in real time, with organic adoption outside the pilot before formal release.</p>
           <div class="tags-row">
@@ -409,6 +416,14 @@
       <span class="k">SPEEDS Explorer · Deployed to APHG students</span>
       <h2 id="speeds-title">A landscape-reading game, built through ADDIE end to end</h2>
       <p class="sub">Here's the skill students were losing points on: reading a cultural landscape as evidence. SPEEDS Explorer is the game I built to make that skill practicable, deployed to APHG students and running on GitHub Pages with no login, no backend, and a whitelisted URL for district Chromebooks. Every ADDIE phase behind the build left a documented decision.</p>
+
+      <dl class="glance" aria-label="At a glance">
+        <div><dt>Role</dt><dd>Analysis, design, and build</dd></div>
+        <div><dt>Audience</dt><dd>AP Human Geography students who had met the skill and needed practice applying it</dd></div>
+        <div><dt>Tools</dt><dd>React, GitHub Pages, AI-assisted image analysis</dd></div>
+        <div><dt>Core constraint</dt><dd>No login, no backend, and a whitelisted address for district Chromebooks</dd></div>
+        <div><dt>Outcome</dt><dd>Deployed in a 3-day phased rollout; summative evaluation still pending</dd></div>
+      </dl>
 
       <figure class="shot hero-shot">
         <img src="images/addie-hero.jpg" alt="SPEEDS Explorer homepage, titled Stimulus skills practice, with a Start a round button and an Observe, Locate, Explain round overview">
@@ -523,6 +538,14 @@
       <h2 id="lucy-title">A methods module designed from the struggle</h2>
       <p class="sub">Here's what students most often get wrong in AP Research: they confuse a data-collection tool (a survey, an interview) with a method (correlational, thematic, historical). Lucy's Methods Lab is the self-paced Rise 360 module I built to make that distinction visible, deployed as an independent practice resource. Every design decision below traces back to a specific way learners were getting stuck.</p>
 
+      <dl class="glance" aria-label="At a glance">
+        <div><dt>Role</dt><dd>Needs analysis, design, and authoring</dd></div>
+        <div><dt>Audience</dt><dd>AP Research students, a gifted-and-talented population</dd></div>
+        <div><dt>Tools</dt><dd>Articulate Rise 360</dd></div>
+        <div><dt>Core constraint</dt><dd>Self-paced, and free for any student to reach</dd></div>
+        <div><dt>Outcome</dt><dd>Deployed as an independent practice resource; no outcome data is claimed for it</dd></div>
+      </dl>
+
       <h3 class="section-h">The Problem</h3>
       <div class="prose">
         <p>AP Research asks students to design and execute an original research study across a year. The single most common conceptual error is confusing a data-collection tool (a survey, an interview) with a method (descriptive, correlational, thematic analysis). The confusion cascades: a student who thinks a survey is a method cannot defend their choice of analysis, cannot align their claims to their evidence, and loses points on the rubric's method and new-understanding rows.</p>
@@ -603,6 +626,14 @@
       <h2 id="canvas-title">District support for APHG teachers, packaged as a portable Canvas course</h2>
       <p class="sub">Here's the reality on the ground: APHG teachers across a district arrive at the course with very different gaps and very different histories. The Canvas APHG Teacher Launchpad meets them where they are, packaged as a portable .imscc cartridge and designed against WCAG 2.1 Level AA ahead of the 2027 ADA Title II deadline.</p>
 
+      <dl class="glance" aria-label="At a glance">
+        <div><dt>Role</dt><dd>Design and authoring</dd></div>
+        <div><dt>Audience</dt><dd>District APHG teachers, from novices to veterans</dd></div>
+        <div><dt>Tools</dt><dd>Canvas LMS, portable .imscc package, inline CSS</dd></div>
+        <div><dt>Core constraint</dt><dd>WCAG 2.1 Level AA, and a sanitizer that strips style blocks on import</dd></div>
+        <div><dt>Outcome</dt><dd>Imported cleanly into a Canvas sandbox with prerequisite chains intact</dd></div>
+      </dl>
+
       <figure class="shot hero-shot">
         <img src="images/canvas-02.png" alt="Landing view of the Canvas course showing the three-domain framing and six paths">
         <figcaption>The whole architecture on one page: three domains, self-assessment, six paths. The learner picks the path they need and skips the ones they do not.</figcaption>
@@ -676,6 +707,14 @@
       <span class="k">AP Research Paper Analyzer · Deployed 2026 exam cycle</span>
       <h2 id="analyzer-title">Rubric-aligned AI feedback on a full paper, on free student accounts</h2>
       <p class="sub">Here's what feedback at scale actually costs: about thirty cents per student per analysis on paid infrastructure, and PDF uploads that free student accounts cannot do. The Paper Analyzer is the free-account alternative, returning <strong>rubric-aligned, section-by-section scoring</strong> on a full paper in under a minute so no one is priced out of practice.</p>
+
+      <dl class="glance" aria-label="At a glance">
+        <div><dt>Role</dt><dd>Design, calibration, and build</dd></div>
+        <div><dt>Audience</dt><dd>AP Research students on free accounts</dd></div>
+        <div><dt>Tools</dt><dd>Claude.ai artifact</dd></div>
+        <div><dt>Core constraint</dt><dd>Zero cost at the student level, with no PDF upload</dd></div>
+        <div><dt>Outcome</dt><dd>Deployed in the 2026 exam cycle; calibrated against 11 scored papers</dd></div>
+      </dl>
 
       <figure class="shot hero-shot">
         <img src="images/paper-input.png" alt="AP Research Analyzer input screen showing a paste-your-paper text box with a live word count indicator reading '4,301 words, in range' in green">
@@ -797,6 +836,14 @@
       <h2 id="rq-title">Real-time coaching on the alignment students most often break</h2>
       <p class="sub">Here's where the alignment breaks: students are asked to write research questions and pick methods at the same time in the year, when neither craft is developed. This workshop moves students through an 11-step Evaluate → Train → Rewrite → Align workflow, checking whether their research question and method actually answer each other and returning targeted coaching in seconds.</p>
 
+      <dl class="glance" aria-label="At a glance">
+        <div><dt>Role</dt><dd>Design and build</dd></div>
+        <div><dt>Audience</dt><dd>AP Research students drafting a research question and method</dd></div>
+        <div><dt>Tools</dt><dd>Claude.ai artifact, Anthropic API</dd></div>
+        <div><dt>Core constraint</dt><dd>Free-account architecture, feedback in seconds</dd></div>
+        <div><dt>Outcome</dt><dd>Deployed in the 2026 exam cycle, from a 5-student test group to the full class</dd></div>
+      </dl>
+
       <h3 class="section-h">The Problem</h3>
       <div class="prose">
         <p>AP Research students are asked to write research questions and pick methods at the same time in the year, when neither craft is developed. Two failure modes dominate: research questions too broad to answer with any single method, and methods that answer a different question than the one the student wrote. Both are alignment problems, and both suppress the method-row score, which in turn caps the new-understanding score. Feedback that catches the alignment problem before the student has invested weeks of data collection is high-leverage; feedback that catches it after is not.</p>
@@ -855,6 +902,14 @@
       <span class="k">Pick Your Lens · Live for AP Research</span>
       <h2 id="selector-title">A method selector that suggests, then hands the decision back</h2>
       <p class="sub">Here's the decision students stall on: choosing a research method before they can defend it. Pick Your Lens walks a student from their own question to one of 25 method cards, checks that the tool they planned actually feeds that method, and then stops; the justification stays the student's to write. The whole tool is one HTML file, so it opens from a link or sits inside an LMS page.</p>
+
+      <dl class="glance" aria-label="At a glance">
+        <div><dt>Role</dt><dd>Design, content, and build direction</dd></div>
+        <div><dt>Audience</dt><dd>AP Research students choosing a method for their own question</dd></div>
+        <div><dt>Tools</dt><dd>Single-file web page; question path first built in Storyline 360</dd></div>
+        <div><dt>Core constraint</dt><dd>One file, no accounts, able to sit inside an LMS page</dd></div>
+        <div><dt>Outcome</dt><dd>Live at version 9; no usage data is claimed</dd></div>
+      </dl>
 
       <figure class="shot hero-shot">
         <img src="images/method-selector-home.jpg" alt="Pick Your Lens start screen with a Read this first note stating the tool helps you choose and does not choose for you, and buttons for Start, How to use this, Browse all cards, and Other methods">
@@ -937,6 +992,14 @@
       <span class="k">Stop Work Authority · Concept piece, not piloted</span>
       <h2 id="swa-title">Say it before they climb: giving new field employees the words</h2>
       <p class="sub">Here's the gap this piece is built around: most safety training tells workers they have the authority to stop unsafe work; fewer give them the words. These three pieces teach one script, support it at the point of work, and let the learner rehearse it against pushback. It is a concept piece for a workplace-safety audience, not affiliated with any employer and not yet piloted with learners.</p>
+
+      <dl class="glance" aria-label="At a glance">
+        <div><dt>Role</dt><dd>Design, scripting, and research; build was AI-assisted</dd></div>
+        <div><dt>Audience</dt><dd>New field employees in construction (concept audience)</dd></div>
+        <div><dt>Tools</dt><dd>Synthesia video and roleplay, one-page quick reference guide</dd></div>
+        <div><dt>Core constraint</dt><dd>One script, under two minutes, on a free plan</dd></div>
+        <div><dt>Outcome</dt><dd>Built and shared; not yet piloted with learners</dd></div>
+      </dl>
 
       <div class="video-frame hero-shot">
         <iframe src="https://share.synthesia.io/embeds/videos/46bd04df-739a-4a96-8e98-6a176778bb02" title="Stop Work Authority: Say It Before They Climb, microlearning video, 1 minute 53 seconds" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
@@ -1172,6 +1235,7 @@
       panel.hidden = false;
       panel.classList.add('open');
       document.body.style.overflow = 'hidden';
+      if(history.replaceState) history.replaceState(null, '', '#' + id);
       var f = focusables(panel);
       (f[0] || panel).focus();
       panel.addEventListener('keydown', onKey);
@@ -1180,6 +1244,7 @@
       panel.classList.remove('open');
       panel.hidden = true;
       panel.querySelectorAll('iframe').forEach(function(f){ f.src = f.src; });
+      if(history.replaceState) history.replaceState(null, '', location.pathname + location.search);
       panel.removeEventListener('keydown', onKey);
       document.body.style.overflow = '';
       if(lastTrigger){ lastTrigger.focus(); lastTrigger = null; }
@@ -1256,6 +1321,12 @@
 
     document.querySelectorAll('.panel figure.shot img').forEach(function(img){
       img.addEventListener('click', function(){ openLightbox(img); });
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-label', 'Enlarge image: ' + (img.alt || 'screenshot'));
+      img.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openLightbox(img); }
+      });
     });
 
     lightbox.addEventListener('click', function(e){
